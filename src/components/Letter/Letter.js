@@ -4,9 +4,10 @@ import classNames from 'classnames/bind'
 
 
 function Letter(props) {
-  const { isActived } = props;
+  const { index, currentLetter } = props;
   const classLetter = classNames('letter',{
-    'isActived': isActived
+    'isActived': index === currentLetter,
+    'isDone': index < currentLetter
   })
   return (
     <div className={classLetter}>

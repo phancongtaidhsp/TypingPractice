@@ -10,7 +10,10 @@
   animation-duration: 1s;
   animation-iteration-count: infinite;
 }
-
+.isDone{
+  color: rgb(125, 202, 117);
+  background-color: rgba(149,197,144, 0.4);
+}
 @keyframes active {
   0% { border-bottom: 3px solid rgba(50,149,219,1); }
   100% { border-bottom: 3px solid rgba(50,149,219,0); };
