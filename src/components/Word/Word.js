@@ -1,8 +1,9 @@
 import React from 'react'
+import './Word.css'
 
 function Word(props) {
   return (
-    <div>
+    <div className='word'>
       {props.children}
     </div>
   )
