@@ -16,5 +16,5 @@
 }
 @keyframes active {
   0% { border-bottom: 3px solid rgba(50,149,219,1); }
-  100% { border-bottom: 3px solid rgba(50,149,219,0); };
+  100% { border-bottom: 3px solid rgba(50,149,219,0); }
 }
