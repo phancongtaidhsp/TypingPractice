@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "./App.css";
-import Word from "./components/Word/Word";
-import Letter from "./components/Letter/Letter";
 import HomePage from "./pages/homepage.component";
+import Header from "./components/header/header.component";
+import { Router, Route, Switch } from "react-router-dom";
 
 class App extends Component {
   constructor() {
@@ -15,7 +15,7 @@ class App extends Component {
 
   componentDidMount() {
     fetch(
-      "https://baconipsum.com/api/?type=all-meat&paras=10&start-with-lorem=1"
+      "https://baconipsum.com/api/?type=all-meat&paras=6&start-with-lorem=1"
     )
       .then((response) => response.json())
       .then((result) => this.setState({ text: result }));
@@ -59,9 +59,13 @@ class App extends Component {
     // );
 
     return (
-      <div>
-        <HomePage></HomePage>
-      </div>
+      <>
+        <Header></Header>
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route />
+        </Switch>
+      </>
     );
   }
 }

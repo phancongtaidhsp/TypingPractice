@@ -1,0 +1,75 @@
+.header {
+  height: 140px;
+  width: 100%;
+  background: linear-gradient(180deg, #0b85bb 0%, rgba(92, 181, 219, 0.5) 100%);
+  display: flex;
+  justify-content: space-between;
+  letter-spacing: 3px;
+  font-family: "Roboto", sans-serif;
+}
+
+.logo {
+  width: 15%;
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 3vh;
+  margin-left: 5vw;
+  cursor: pointer;
+}
+
+.logo-image {
+  position: absolute;
+  top: 90px;
+  left: 70px;
+}
+
+.logo-wrapper {
+  width: 120px;
+}
+
+.wrapper {
+  position: relative;
+}
+
+.logo-image .logo-content {
+  width: 100px;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+
+.logo h1,
+.logo p {
+  margin: 0;
+  display: block;
+}
+
+.logo h1 {
+  font-size: 40px;
+}
+
+.logo p {
+  padding-top: 12px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  width: 20%;
+  align-items: center;
+  margin-bottom: 4vh;
+  letter-spacing: 1px;
+  margin-right: 5vw;
+}
+
+.menu-item:link,
+.menu-item:visited {
+  flex-grow: 3;
+  color: #fff;
+  overflow: hidden;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 16px;
+}
