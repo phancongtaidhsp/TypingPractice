@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "./App.css";
-import Word from "./components/Word/Word";
-import Letter from "./components/Letter/Letter";
 import HomePage from "./pages/homepage.component";
+import Header from "./components/header/header.component";
+import { Router, Route, Switch } from "react-router-dom";
 
 class App extends Component {
   constructor() {
@@ -12,28 +12,6 @@ class App extends Component {
       text: [],
     };
   }
-
-  componentDidMount() {
-    fetch(
-      "https://baconipsum.com/api/?type=all-meat&paras=10&start-with-lorem=1"
-    )
-      .then((response) => response.json())
-      .then((result) => this.setState({ text: result }));
-
-    // this.arrLetter = this.text.split("");
-    // this.arrWord = this.text.split(" ").map((word) => [...word.split(""), " "]);
-    // this.arrWord[this.arrWord.length - 1].pop();
-
-    // const body = document.getElementById("bodyApp");
-    // body.onkeydown = (event) => {
-    //   if (event.key === this.arrLetter[this.state.currentLetter]) {
-    //     this.setState({
-    //       currentLetter: this.state.currentLetter + 1,
-    //     });
-    //   }
-    // };
-  }
-
   render() {
     // const { currentLetter } = this.state;
     // let counter = -1;
@@ -59,9 +37,13 @@ class App extends Component {
     // );
 
     return (
-      <div>
-        <HomePage></HomePage>
-      </div>
+      <>
+        <Header></Header>
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route />
+        </Switch>
+      </>
     );
   }
 }
