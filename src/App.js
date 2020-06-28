@@ -12,28 +12,6 @@ class App extends Component {
       text: [],
     };
   }
-
-  componentDidMount() {
-    fetch(
-      "https://baconipsum.com/api/?type=all-meat&paras=6&start-with-lorem=1"
-    )
-      .then((response) => response.json())
-      .then((result) => this.setState({ text: result }));
-
-    // this.arrLetter = this.text.split("");
-    // this.arrWord = this.text.split(" ").map((word) => [...word.split(""), " "]);
-    // this.arrWord[this.arrWord.length - 1].pop();
-
-    // const body = document.getElementById("bodyApp");
-    // body.onkeydown = (event) => {
-    //   if (event.key === this.arrLetter[this.state.currentLetter]) {
-    //     this.setState({
-    //       currentLetter: this.state.currentLetter + 1,
-    //     });
-    //   }
-    // };
-  }
-
   render() {
     // const { currentLetter } = this.state;
     // let counter = -1;
