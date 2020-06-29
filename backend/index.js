@@ -10,6 +10,7 @@ mongoose.connect(process.env.MONGO_URL, {useNewUrlParser: true, useUnifiedTopolo
 const userRoutes = require('./routes/user.route')
 const authRoutes = require('./routes/auth.route')
 const lessonRoutes = require('./routes/lesson.route')
+const scoreRoutes = require('./routes/score.route')
 
 const authUserMiddleware = require('./middlewares/auth-user.middleware')
 
@@ -33,6 +34,8 @@ app.use('/auth', authRoutes);
 app.use('/users', authUserMiddleware.requireAuth, userRoutes);
 
 app.use('/lessons', lessonRoutes);
+
+app.user('/scores', scoreRoutes);
 
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
