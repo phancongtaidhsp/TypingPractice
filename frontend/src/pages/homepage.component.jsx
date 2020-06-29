@@ -4,23 +4,25 @@ import DirectoryItem from "../components/directory-item/directory-item.component
 import MemberItem from "../components/member-item/member-item.component";
 import DIRECTORY_DATA from "./directory.data";
 import RANK_DATA from "./rank.data";
+import API from "../api";
 
 class HomePage extends Component {
   constructor() {
     super();
     this.state = {
+      text: [],
       directory: DIRECTORY_DATA,
       rank: RANK_DATA,
     };
   }
   componentDidMount = async () => {
-    await fetch(
-      "https://baconipsum.com/api/?type=all-meat&paras=6&start-with-lorem=1"
-    )
-      .then((response) => response.json())
-      .then((result) => {
-        this.setState({ text: result });
-      });
+    API.get(`lessons`)
+      .then((res) => {
+        const text = res.data;
+        console.log(text);
+        this.setState({ text: text });
+      })
+      .catch((error) => console.log(error));
 
     // this.arrLetter = this.text.split("");
     // this.arrWord = this.text.split(" ").map((word) => [...word.split(""), " "]);
@@ -37,17 +39,17 @@ class HomePage extends Component {
   };
 
   render() {
-    const { directory, rank } = this.state;
+    const { directory, rank, text } = this.state;
     return (
       <>
         <div className="directory">
           <h3>Getting Started</h3>
-          {directory.map((directory) => (
-            <DirectoryItem key={directory.id} directory={directory} />
+          {text.map((text) => (
+            <DirectoryItem key={text._id} text={text} />
           ))}
         </div>
         <div className="rank">
-          <h3>Rank</h3>
+          <h3 className="rank_title">Rank</h3>
           {rank.map((rank) => (
             <MemberItem key={rank.id} rank={rank} />
           ))}

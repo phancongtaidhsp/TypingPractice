@@ -6,8 +6,8 @@ import rectange from "../../assets/img/rectange.png";
 const DirectoryItem = (props) => {
   return (
     <div className="directory-item">
-      <p className="number">{props.directory.id}</p>
-      <p className="title">{props.directory.title}</p>
+      <p className="directory-number">{props.text.level}</p>
+      <p className="directory-title">{props.text.name}</p>
       <Link className="btn-start" to="/">
         <img src={rectange} alt="icon"></img>
         Start

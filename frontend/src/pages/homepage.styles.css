@@ -1,11 +1,13 @@
 .directory {
-  width: 400px;
-  height: 500px;
+  width: 500px;
+  height: 550px;
   background-color: #3295db;
   margin: 60px 80px 20px 300px;
   border-radius: 5px;
   padding: 20px;
   display: inline-block;
+  position: relative;
+  bottom: 220px;
 }
 
 .directory h3 {
@@ -18,5 +20,11 @@
 .rank {
   width: 350px;
   display: inline-block;
-  margin-top: auto;
+  position: relative;
+  top: 10px;
+}
+.rank_title {
+  text-align: end;
+  padding-right: 15px;
+  font-weight: bold;
 }
