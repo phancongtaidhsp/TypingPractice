@@ -1,12 +1,16 @@
 import React, { Component } from "react";
 import "./homepage.styles.css";
+import DirectoryItem from "../components/directory-item/directory-item.component";
+import MemberItem from "../components/member-item/member-item.component";
 import DIRECTORY_DATA from "./directory.data";
+import RANK_DATA from "./rank.data";
 
 class HomePage extends Component {
   constructor() {
     super();
     this.state = {
       directory: DIRECTORY_DATA,
+      rank: RANK_DATA,
     };
   }
   componentDidMount = async () => {
@@ -33,18 +37,22 @@ class HomePage extends Component {
   };
 
   render() {
-    const { directory } = this.state;
+    const { directory, rank } = this.state;
     return (
-      <div className="directory">
-        <h3>Getting Started</h3>
-        {directory.map((directory) => (
-          <div className="item" key={directory.id}>
-            {directory.id}
-            {directory.title}
-            <a>Start</a>
-          </div>
-        ))}
-      </div>
+      <>
+        <div className="directory">
+          <h3>Getting Started</h3>
+          {directory.map((directory) => (
+            <DirectoryItem key={directory.id} directory={directory} />
+          ))}
+        </div>
+        <div className="rank">
+          <h3>Rank</h3>
+          {rank.map((rank) => (
+            <MemberItem key={rank.id} rank={rank} />
+          ))}
+        </div>
+      </>
     );
   }
 }

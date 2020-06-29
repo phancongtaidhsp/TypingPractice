@@ -1,0 +1,12 @@
+.member-item {
+  background-color: #fff;
+  width: 90%;
+  margin: 0 auto;
+  height: 45px;
+  margin-bottom: 30px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
