@@ -19,7 +19,6 @@ class HomePage extends Component {
     API.get(`lessons`)
       .then((res) => {
         const text = res.data;
-        console.log(text);
         this.setState({ text: text });
       })
       .catch((error) => console.log(error));
