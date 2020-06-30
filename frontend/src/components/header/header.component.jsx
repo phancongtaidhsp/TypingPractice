@@ -22,7 +22,7 @@ const Header = () => {
         <Link className="menu-item" to="/">
           Home
         </Link>
-        <Link className="menu-item" to="/lessons">
+        <Link className="menu-item" to={"/lessons/1"}>
           Lessons
         </Link>
         <Link className="menu-item" to="/login">

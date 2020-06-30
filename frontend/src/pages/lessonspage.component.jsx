@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./homepage.styles.css";
+import "./lessonspage.styles.css";
 import DirectoryItem from "../components/directory-item/directory-item.component";
 import MemberItem from "../components/member-item/member-item.component";
 import RANK_DATA from "./rank.data";

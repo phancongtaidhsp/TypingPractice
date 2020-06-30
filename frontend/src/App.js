@@ -1,16 +1,13 @@
 import React, { Component } from "react";
 import "./App.css";
 import HomePage from "./pages/homepage.component";
+import LessonsPage from "./pages/lessonspage.component";
 import Header from "./components/header/header.component";
 import { Router, Route, Switch } from "react-router-dom";
 
 class App extends Component {
   constructor() {
     super();
-    this.state = {
-      currentLetter: 0,
-      text: [],
-    };
   }
   render() {
     // const { currentLetter } = this.state;
@@ -41,7 +38,7 @@ class App extends Component {
         <Header></Header>
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route />
+          <Route path="/lessons/:id" component={LessonsPage} />
         </Switch>
       </>
     );
