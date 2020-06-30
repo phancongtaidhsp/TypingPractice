@@ -8,6 +8,13 @@ module.exports.index = (req, res) => {
   })
 }
 
+module.exports.get = async (req, res) => {
+  Lesson.findById(req.params.id, (err,doc) => {
+    if(doc) res.status(200).send(doc)
+    else res.status(400).send('Failed with invalid input parameter')
+  })
+}
+
 module.exports.postCreate = async (req, res) => {
   await Lesson.create(req.body).catch(err => {
     res.status(500).send('Failed with internal server error')

@@ -7,6 +7,7 @@ const validateLesson = require('../validate/lesson.validate')
 
 
 router.get('/', controller.index);
+router.get('/:id', controller.get)
 router.post('/newLesson', authUserMiddleware.requireAuth, authAdminMiddleware.requireAuthAdmin, validateLesson.validateLessonInput, validateLesson.postCreate, controller.postCreate);
 router.delete('/:id', authUserMiddleware.requireAuth, authAdminMiddleware.requireAuthAdmin, controller.delete);
 router.put('/updateLesson/:id', authUserMiddleware.requireAuth, authAdminMiddleware.requireAuthAdmin, controller.update);
