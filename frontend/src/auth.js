@@ -1,20 +1,24 @@
 class Auth {
   constructor() {
-    this.authenticated = false;
+    if ((localStorage.getItem("auth") === "true") === true) {
+      localStorage.setItem("auth", true);
+    } else {
+      localStorage.setItem("auth", false);
+    }
   }
 
   login(cb) {
-    this.authenticated = true;
+    localStorage.setItem("auth", true);
     cb();
   }
 
   logout(cb) {
-    this.authenticated = false;
+    localStorage.setItem("auth", false);
     cb();
   }
 
   isAuthenticated() {
-    return this.authenticated;
+    return localStorage.getItem("auth") === "true";
   }
 }
 

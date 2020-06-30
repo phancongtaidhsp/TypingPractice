@@ -33,7 +33,7 @@ const Header = () => {
           className="menu-item"
           activeClassName="underline"
           exact
-          to={"/lessons/1"}
+          to={"/lessons/5ef9a26528aab015a45c2fa4"}
         >
           Lessons
         </NavLink>
@@ -42,9 +42,9 @@ const Header = () => {
           className="menu-item"
           activeClassName="underline"
           exact
-          to="/login"
+          to={localStorage.getItem("user") ? "/logout" : "/login"}
         >
-          Login
+          {localStorage.getItem("user") ? "Logout" : "Login"}
         </NavLink>
       </div>
     </div>

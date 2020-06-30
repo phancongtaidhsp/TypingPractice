@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import API from "../api";
-import { Redirect } from "react-router-dom";
+import { Redirect, withRouter } from "react-router-dom";
 import "./loginpage.style.css";
+import auth from "../auth.js";
 
 class LoginPage extends Component {
   constructor(props) {
@@ -26,14 +27,10 @@ class LoginPage extends Component {
     API.post(`auth/login`, { username, password })
       .then((res) => {
         const user = res.data;
-        return (
-          <Redirect
-            to={{
-              pathname: `/${this.state.from}`,
-              state: { from: user },
-            }}
-          />
-        );
+        localStorage.setItem("user", user);
+        auth.login(() => {
+          this.props.history.push(`${localStorage.getItem("pathname")}`);
+        });
       })
       .catch((error) => console.log(error));
   }
@@ -126,4 +123,4 @@ class LoginPage extends Component {
   }
 }
 
-export default LoginPage;
+export default withRouter(LoginPage);
