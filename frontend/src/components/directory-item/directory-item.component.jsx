@@ -9,7 +9,7 @@ const DirectoryItem = (props) => {
     <div className="directory-item">
       <p className="directory-number">{props.text.level}</p>
       <p className="directory-title">{props.text.name}</p>
-      <Link className="btn-start" to={`/lessons/${props.text.level}`}>
+      <Link className="btn-start" to={`/lessons/${props.text._id}`}>
         <img src={rectange} alt="icon"></img>
         Start
       </Link>

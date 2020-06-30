@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./header.styles.css";
 import logo1 from "../../assets/img/logo1.png";
 import logo2 from "../../assets/img/logo2.png";
@@ -19,15 +19,33 @@ const Header = () => {
         </div>
       </div>
       <div className="menu">
-        <Link className="menu-item" to="/">
+        <NavLink
+          tag={Link}
+          className="menu-item"
+          activeClassName="underline"
+          exact
+          to="/"
+        >
           Home
-        </Link>
-        <Link className="menu-item" to={"/lessons/1"}>
+        </NavLink>
+        <NavLink
+          tag={Link}
+          className="menu-item"
+          activeClassName="underline"
+          exact
+          to={"/lessons/1"}
+        >
           Lessons
-        </Link>
-        <Link className="menu-item" to="/login">
+        </NavLink>
+        <NavLink
+          tag={Link}
+          className="menu-item"
+          activeClassName="underline"
+          exact
+          to="/login"
+        >
           Login
-        </Link>
+        </NavLink>
       </div>
     </div>
   );

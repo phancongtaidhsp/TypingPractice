@@ -1,111 +1,111 @@
-.btn-base{
+.login-btn-base {
   font-size: 12px;
   border-radius: 5px;
   color: #6d5825;
-  padding: 1.25px 10px .75px;
+  padding: 1.25px 10px 0.75px;
   font-weight: 500;
 }
-.btn-large{
+.login-btn-large {
   font-size: 18px;
   padding: 10px 40px 6px;
 }
-.logo_text{
+.login-logo_text {
   font-weight: 800;
   font-size: 30px;
-  color: #4a4a4a
+  color: #4a4a4a;
 }
-.logo_text_small{
+.login-logo_text_small {
   margin-left: -3px;
   color: #4a4a4a;
   font-weight: 500;
 }
-.title{
+.login-title {
   color: #3295db;
   font-size: 40px;
   margin-top: 80px;
   margin-bottom: 50px;
   text-align: center;
 }
-.header{
+.login-header {
   display: flex;
   justify-content: space-between;
 }
-.main{
+.login-main {
   margin: 0 auto;
   max-width: 1200px;
 }
-.brand_logo{
+.login-brand_logo {
   background-color: white;
   padding: 5px 5px 7px;
   border-radius: 3px;
   display: inline-block;
 }
-.autho_brand_text{
+.login-autho_brand_text {
   color: white;
   padding: 0 5px;
 }
-.autho_brand_img{
+.login-autho_brand_img {
   width: 25px;
   height: 25px;
 }
-.autho-btn{
-  background-color: #4285F4;
+.login-autho-btn {
+  background-color: #4285f4;
   padding: 2px;
   display: inline-block;
   border-radius: 3px;
 }
-.eke{
+.login-eke {
   position: relative;
   height: 2px;
-  background-color: #EAEAEA;
+  background-color: #eaeaea;
 }
-.group-autho-btn{
+.login-group-autho-btn {
   text-align: center;
   margin: 20px 0;
 }
-.eke{
+.login-eke {
   margin-top: 40px;
 }
-.or{
+.login-or {
   position: absolute;
   padding: 5px;
   font-size: 14px;
-  border-radius:50%;
-  background-color: #EAEAEA;
+  border-radius: 50%;
+  background-color: #eaeaea;
   top: -15px;
   left: 48%;
 }
-.form-login{
+.login-form-login {
   margin-top: 50px;
 }
-.username_lable{
+.login-username_lable {
   display: block;
   margin: 0;
 }
-.username_input{
+.login-username_input {
   display: block;
   background: #f7f7f7;
   border-radius: 10px;
   border: none;
-  box-shadow: inset 0 2px 5px rgba(26,26,26,.1);
+  box-shadow: inset 0 2px 5px rgba(26, 26, 26, 0.1);
   box-sizing: border-box;
   color: #646464;
   font-size: 20px;
   outline: 0;
   padding: 10px 15px;
-  transition: all .25s ease-in-out;
+  transition: all 0.25s ease-in-out;
   width: 100%;
 }
-.forgot-login{
+.login-forgot-login {
   display: block;
   text-align: end;
 }
-.pillar{
+.login-pillar {
   text-align: end;
 }
-.btn-next{
+.login-btn-next {
   margin-top: 30px;
 }
-.wrapper{
+.login-wrapper {
   text-align: center;
 }

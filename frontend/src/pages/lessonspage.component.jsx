@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 import "./lessonspage.styles.css";
-import DirectoryItem from "../components/directory-item/directory-item.component";
-import MemberItem from "../components/member-item/member-item.component";
-import RANK_DATA from "./rank.data";
 import API from "../api";
 
 class HomePage extends Component {
@@ -10,14 +7,16 @@ class HomePage extends Component {
     super();
     this.state = {
       text: [],
-      rank: RANK_DATA,
+      id: null,
     };
   }
   componentDidMount = async () => {
-    API.get(`lessons`)
+    let { id } = this.props.match.params;
+    await API.get(`lessons`)
       .then((res) => {
         const text = res.data;
-        this.setState({ text: text });
+        console.log(text);
+        this.setState({ text: text, id: id });
       })
       .catch((error) => console.log(error));
 
@@ -36,23 +35,8 @@ class HomePage extends Component {
   };
 
   render() {
-    const { rank, text } = this.state;
-    return (
-      <>
-        <div className="directory">
-          <h3>Getting Started</h3>
-          {text.map((text) => (
-            <DirectoryItem key={text._id} text={text} />
-          ))}
-        </div>
-        <div className="rank">
-          <h3 className="rank_title">Rank</h3>
-          {rank.map((rank) => (
-            <MemberItem key={rank.id} rank={rank} />
-          ))}
-        </div>
-      </>
-    );
+    const { text, id } = this.state;
+    return <h3>{text.map((text) => text.content + ",")}</h3>;
   }
 }
 
