@@ -10,16 +10,10 @@ mongoose.connect(process.env.MONGO_URL, {
   useUnifiedTopology: true,
 });
 
-<<<<<<< HEAD
 const userRoutes = require('./routes/user.route')
 const authRoutes = require('./routes/auth.route')
 const lessonRoutes = require('./routes/lesson.route')
 const scoreRoutes = require('./routes/score.route')
-=======
-const userRoutes = require("./routes/user.route");
-const authRoutes = require("./routes/auth.route");
-const lessonRoutes = require("./routes/lesson.route");
->>>>>>> 723f77e1cf33718de42a47b26eb6dbf747d374ac
 
 const authUserMiddleware = require("./middlewares/auth-user.middleware");
 
@@ -63,12 +57,9 @@ app.get("/", (req, res) =>
   })
 );
 
-<<<<<<< HEAD
-app.user('/scores', scoreRoutes);
+app.use('/scores', scoreRoutes);
 
-=======
-app.use("/auth", authRoutes);
->>>>>>> 723f77e1cf33718de42a47b26eb6dbf747d374ac
+app.use('/auth', authRoutes);
 
 app.use("/users", authUserMiddleware.requireAuth, userRoutes);
 
