@@ -1,4 +1,4 @@
-.directory {
+/* .directory {
   width: 500px;
   height: 550px;
   background-color: #3295db;
@@ -10,12 +10,7 @@
   bottom: 220px;
 }
 
-.directory h3 {
-  color: #fff;
-  font-size: 30px;
-  margin: 0;
-  margin-bottom: 40px;
-}
+
 
 .rank {
   width: 350px;
@@ -23,8 +18,32 @@
   position: relative;
   top: 10px;
 }
+*/
+.directory {
+  width: 30%;
+  display: inline-block;
+  margin-left: 28%;
+  margin-top: 70px;
+  background-color: #3295db;
+  border-radius: 5px;
+}
+
+.directory h3 {
+  color: #fff;
+  font-size: 30px;
+  margin: 20px 0 20px 20px;
+}
+
+.rank {
+  width: 30%;
+  display: inline-block;
+  margin-left: 80px;
+  position: relative;
+  bottom: 130px;
+}
+
 .rank_title {
   text-align: end;
-  padding-right: 15px;
+  padding-right: 20px;
   font-weight: bold;
 }
