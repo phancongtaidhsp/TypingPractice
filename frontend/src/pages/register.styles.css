@@ -58,6 +58,7 @@ button:focus {
   font-size: 3.5rem;
   margin-top: 2rem;
   text-align: center;
+  color: #71b16b;
 }
 .regisMain .botMain {
   margin-top: 2rem;
@@ -72,7 +73,7 @@ button:focus {
   color: #806823;
   background: #ffcf46;
   border-radius: 5px;
-  border-color: #ffcf46;
+  border: none;
   padding: 0 20px;
 }
 .formRegis {
@@ -90,12 +91,12 @@ button:focus {
   color: #ce3e44;
 }
 .formRegis input {
-  background: #f7f7f7;
-  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
+  background: #d8d7d7;
+  /* box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25); */
+  border-radius: 6px;
   border: none;
   width: 70%;
-  height: 4rem;
-  font-size: 2rem;
+  height: 3rem;
+  font-size: 1.2rem;
   padding: 0 20px;
 }

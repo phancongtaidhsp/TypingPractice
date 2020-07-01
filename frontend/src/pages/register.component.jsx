@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from "../api";
-import { Redirect, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import "./register.styles.css";
 
 class Register extends Component {
@@ -46,7 +46,10 @@ class Register extends Component {
               </div>
               <div className="bottomPreview d-flex align-items-center justify-content-between">
                 <p>You have a account?</p>
-                <button>Sing In</button>
+
+                <button onClick={() => this.props.history.push("/login")}>
+                  Sign In
+                </button>
               </div>
             </div>
             <div className="col-8 regisMain">
@@ -70,7 +73,7 @@ class Register extends Component {
                 </div>
                 <div className="botMain d-flex align-items-start">
                   <p>Brought to you by Marines Team</p>
-                  <button>Next</button>
+                  <button type="submit">Sign Up</button>
                 </div>
               </form>
             </div>
