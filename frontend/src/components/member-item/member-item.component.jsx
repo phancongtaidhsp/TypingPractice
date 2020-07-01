@@ -5,18 +5,18 @@ import "./member-item.styles.css";
 const MemberItem = (props) => {
   return (
     <div className="member-item d-flex">
-      <div className="member-id d-flex align-items-center">{props.rank.id}</div>
+      <div className="member-id d-flex align-items-center">{props.value}</div>
       <div className="content-member d-flex justify-content-between">
         <div className="d-flex align-items-center left-member">
           <img
             alt="monster"
             src={`https://robohash.org/${props.rank.id}?set=set2&size=50x50`}
           />
-          <p>{props.rank.name}</p>
+          <p>{props.rank.username}</p>
         </div>
 
         <p className="right-member">
-          {props.rank.point}
+          {props.rank.score}
           <span>t/p</span>
         </p>
       </div>
