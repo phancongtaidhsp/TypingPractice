@@ -4,7 +4,7 @@ import "./header.styles.css";
 import logo1 from "../../assets/img/logo1.png";
 import logo2 from "../../assets/img/logo2.png";
 
-const Header = () => {
+const Header = (props) => {
   return (
     <div className="header">
       <div className="logo">
@@ -42,9 +42,9 @@ const Header = () => {
           className="menu-item"
           activeClassName="underline"
           exact
-          to={localStorage.getItem("user") ? "/logout" : "/login"}
+          to={localStorage.getItem("auth") === "true" ? "/logout" : "/login"}
         >
-          {localStorage.getItem("user") ? "Logout" : "Login"}
+          {localStorage.getItem("auth") === "true" ? "Logout" : "Login"}
         </NavLink>
       </div>
     </div>

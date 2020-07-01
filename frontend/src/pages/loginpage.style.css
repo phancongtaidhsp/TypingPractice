@@ -22,8 +22,6 @@
 .login-title {
   color: #3295db;
   font-size: 40px;
-  margin-top: 80px;
-  margin-bottom: 50px;
   text-align: center;
 }
 .login-header {
@@ -32,7 +30,7 @@
 }
 .login-main {
   margin: 0 auto;
-  max-width: 1200px;
+  max-width: 400px;
 }
 .login-brand_logo {
   background-color: white;
@@ -76,7 +74,7 @@
   left: 48%;
 }
 .login-form-login {
-  margin-top: 50px;
+  margin-top: 20px;
 }
 .login-username_lable {
   display: block;
@@ -85,16 +83,17 @@
 .login-username_input {
   display: block;
   background: #f7f7f7;
-  border-radius: 10px;
+  border-radius: 6px;
   border: none;
   box-shadow: inset 0 2px 5px rgba(26, 26, 26, 0.1);
   box-sizing: border-box;
-  color: #646464;
-  font-size: 20px;
+  color: #333;
+  font-size: 15px;
   outline: 0;
-  padding: 10px 15px;
+  padding: 8px 15px;
   transition: all 0.25s ease-in-out;
   width: 100%;
+  margin-bottom: 20px;
 }
 .login-forgot-login {
   display: block;
@@ -105,6 +104,9 @@
 }
 .login-btn-next {
   margin-top: 30px;
+  padding: 10px 30px;
+  font-size: 15px;
+  letter-spacing: 1.5px;
 }
 .login-wrapper {
   text-align: center;
