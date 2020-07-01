@@ -39,12 +39,6 @@ class HomePage extends Component {
             <DirectoryItem key={text._id} text={text} />
           ))}
         </div>
-        <div className="rank">
-          <h3 className="rank_title">Rank</h3>
-          {rank.map((rank) => (
-            <MemberItem key={rank.id} rank={rank} />
-          ))}
-        </div>
       </>
     );
   }

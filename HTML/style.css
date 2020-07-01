@@ -1,0 +1,325 @@
+body{
+  background: #fff;
+  font-size: 100%;
+  min-height: 100vh;
+  }
+
+  .session{
+      background-color: #fff;
+      display: flex;
+      min-height: 100vh;
+      min-width: 100vw;
+  }
+  .session-sidebar{
+    background-image: linear-gradient(
+      to bottom, #558550 30%, #9cc897 100%  
+    );
+    box-sizing: border-box;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 500px;
+    padding: 30px;
+    width: 30%;
+  }
+  .logo{
+    background-color: transparent;
+    text-align: center;
+  }
+  div {
+    display: block;
+}
+  h1 {
+  font-family: 'Segoe UI';
+  font-size: 50px;
+  font-weight: bold;
+  color: #fff;
+  }
+  p{
+  font-family: 'Segoe UI';
+  font-size: 20px;
+  margin-top: 50px;
+  color: #fff;
+  }
+  li{
+    text-align: -webkit-match-parent;
+  }
+  .split{
+    align-items: center;
+    display: flex;
+  }
+  .fas{
+    color: #fff;
+    font-size: 36px;
+    margin-top: 20px;
+  }
+  .session-content{
+    align-items: center;
+    font-size: 32px;
+    color: #fff;
+    margin-top: 110px;
+    font-family: 'Segoe UI';
+    font-weight: bold;
+  }
+  .pillar{
+    margin-top: 30px;
+    border-bottom: none;
+    padding-bottom: 0;
+    padding-top: 30px;
+    border-color: #fff;
+    border-top: 1px solid #d5d5d5;
+  }
+  .content{
+    display: flex;
+    flex: 1;
+    position: relative;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .header{
+    flex: 0 1 auto;
+    overflow: visible;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: block;
+  }
+  .content_header{
+    flex: 1;
+  }
+  .list-item-header{
+    margin-bottom: 0;
+    margin-left: 700px;
+    font-size: 25px;
+    color: darkgray;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  .btn{
+    background: #ffcf46;
+    border-radius: 5px;
+    color:#fff;
+    margin-left: 5px;
+    font-size: 22px;
+    padding: 1.25px 10px .75px;
+    font-family: sans-serif;
+    cursor: pointer;
+    display: inline-flex;
+    line-height: 2;
+    text-decoration: none;
+    font-weight: bold;
+    }
+    .main{
+      flex: 1;
+      overflow: hidden;
+      padding-left: 20px;
+      padding-right: 20px;
+      display: block;
+    }
+    .cell{
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 700px;
+      position: relative;
+      display: block;
+    }
+    .title-main{
+      color: black;
+      text-align: center;
+      font-size: 40px;
+      margin-top: 50px;
+      margin-bottom: 30px;
+      font-family: sans-serif;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    .list-wrap{
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: baseline;
+      display: flex;
+    }
+    .list-item-main{
+      flex-grow: 0;
+      margin-bottom: 0;
+      margin-right: 20px;
+      margin-top: 20px;
+      display: block;
+      list-style-type: none;
+    }
+    .btn-google{
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #4285f4;
+      border-color: #4285f4;
+      border-width: 1px;
+      border-style: solid;
+      border-radius: 5px;
+      color: #fff;
+      font-size: 20px;
+      line-height: 65px;
+      justify-content: flex-start;
+      padding-bottom: 0;
+      padding-top: 0;
+      padding-left: 50px;
+      position: relative;
+      text-align: right;
+      transition: all .25s ease-in-out;
+      align-items: center;
+      box-sizing: border-box;
+      cursor: pointer;
+      display: inline-flex;
+      letter-spacing: inherit;
+      padding: 2px 20px 2px 65px ;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .btn-google:before{
+      background: #fff url(logo-google-G.jpg) no-repeat;
+      background-size: 55px;
+      border-radius: 8px;
+      content: "";
+      height: 60px;
+      left: 3px;
+      top: 3px;
+      width: 58px;
+      position: absolute;
+    }
+    .btn-facebook{
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #4285f4;
+      border-color: #4285f4;
+      border-width: 1px;
+      border-style: solid;
+      border-radius: 5px;
+      color: #fff;
+      font-size: 20px;
+      line-height: 65px;
+      justify-content: flex-start;
+      padding-bottom: 0;
+      padding-top: 0;
+      padding-left: 50px;
+      position: relative;
+      text-align: right;
+      transition: all .25s ease-in-out;
+      align-items: center;
+      box-sizing: border-box;
+      cursor: pointer;
+      display: inline-flex;
+      letter-spacing: inherit;
+      padding: 2px 20px 2px 65px ;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .btn-facebook:before{
+      background: #fff url(fb.png) no-repeat;
+      background-size: 55px;
+      border-radius: 8px;
+      content: "";
+      height: 60px;
+      left: 3px;
+      top: 3px;
+      width: 58px;
+      position: absolute;
+    }
+    a{
+      font-weight: 500;
+    }
+    .hr{
+      margin-top: 20px;
+      margin-bottom: 0;
+      position: relative;
+      z-index: 1;
+    }
+    .hr-ls{
+      font-size: 19px;
+      height: 40px;
+      width: 40px;
+      padding-top: 10px;
+      padding-left: 6px;
+      background: #eaeaea;
+      color: #a9a9a9;
+      align-items: center;
+      border-radius: 50%;
+      box-sizing: border-box;
+      display: flex;
+      font-weight: 700;
+      display: block;
+      justify-content: center;
+      margin: 0 auto;
+      font-family: sans-serif;
+    }
+    .hr-ls:after{
+      background: #eaeaea;
+      content: "";
+      height: 1px;
+      left: 0;
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      z-index: -1;
+    }
+    .Form{
+      margin-top: 20px;
+      margin-bottom: 0;
+      display: block;
+    }
+    .form-field{
+      align-items: center;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      display: flex;
+      position: relative;
+      box-sizing: border-box;
+      margin-bottom: 30px;
+    }
+    .label{
+      font-size: 25px;
+      font-weight: 500;
+      cursor: default;
+      font-family: sans-serif;
+      color: #a9a9a9;
+    }
+    .input{
+      background: #f7f7f7;
+      border-radius: 10px;
+      border: none;
+      box-shadow: inset 0 2px 5px rgba(26,26,26,.1);
+      color: #646464;
+      font-size: 30px;
+      outline: 0;
+      padding: 10px 15px;
+      width: 100%;
+      line-height: normal;
+      font: normal;
+      margin: 0;
+      letter-spacing: normal;
+      
+    }
+    
+    .pawo{
+    top: 50px;
+    position: absolute;
+    right: 15px;
+    font-size: 20px;
+    text-decoration: none;
+    color: #558550;
+    font-weight: bold;
+    font-family: sans-serif;
+    }
+    .text{
+      font-size: 20px;
+      font-family: sans-serif;
+      font-weight: 500;
+      color: teal;
+    }
+    .btn-submit{
+    position: absolute;
+    background: #ffcf46;
+    border-radius: 5px;
+    color: saddlebrown;
+    font-size: 25px;
+    padding: 1.25px 10px .75px;
+    font-family: sans-serif;
+    line-height: 2;
+    cursor: pointer;
+    display: inline-flex;
+    left:90%;
+    }

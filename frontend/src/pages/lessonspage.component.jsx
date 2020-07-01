@@ -3,6 +3,7 @@ import "./lessonspage.styles.css";
 import API from "../api";
 import Word from "../components/Word/Word"
 import Letter from "../components/Letter/Letter"
+import MemberItem from "../components/member-item/member-item.component"
 
 class LessonsPage extends Component {
   constructor() {
@@ -13,6 +14,7 @@ class LessonsPage extends Component {
       arrWord: [],
       currentLetter: 0,
       accuracy: 0,
+      stop: false,
       score: 0,
       id: null,
     };
@@ -30,24 +32,34 @@ class LessonsPage extends Component {
         this.setState({text: text, arrLetter: arrLetter, arrWord: arrWord})
         const body = document.getElementById("bodyApp");
         body.onkeydown = (event) => {
-          if(this.state.currentLetter >= this.state.arrLetter.length){
-            this.setState({score: this.state.accuracy/this.state.arrLetter.length})
-            API.post('scores/saveScore', {lesson_id: id, score: this.state.score})
-            .then((res) => {
-              console.log(res.data)
-            })
-            .catch((error) => console.log(error));
-          }
-          else if (event.key === this.state.arrLetter[this.state.currentLetter]) {
-            this.setState({
-              accuracy: this.state.accuracy + 1,
-              currentLetter: this.state.currentLetter + 1,
-            });
-          }
-          else{
-            this.setState({
-              currentLetter: this.state.currentLetter + 1,
-            });
+          if(!this.state.stop){
+            if(this.state.currentLetter + 1 === this.state.arrLetter.length){
+              if (event.key === this.state.arrLetter[this.state.currentLetter]) {
+                this.setState({
+                  accuracy: this.state.accuracy + 1,
+                  currentLetter: this.state.currentLetter + 1,
+                });
+              }
+              this.setState({score: this.state.accuracy/this.state.arrLetter.length})
+              const userId = localStorage.getItem('userId')
+              API.post('scores/saveScore', {userId ,lesson_id: id, score: this.state.score})
+              .then((res) => {
+                console.log(res.data)
+              })
+              .catch((error) => console.log(error));
+              this.setState({stop: true})
+            }
+            else if (event.key === this.state.arrLetter[this.state.currentLetter]) {
+              this.setState({
+                accuracy: this.state.accuracy + 1,
+                currentLetter: this.state.currentLetter + 1,
+              });
+            }
+            else{
+              this.setState({
+                currentLetter: this.state.currentLetter + 1,
+              });
+            }
           }
         };
       })
@@ -59,6 +71,7 @@ class LessonsPage extends Component {
     const { currentLetter, arrWord } = this.state;
     let counter = -1;
     return (
+      <>
       <div className="App">
         {arrWord.map((word) => (
           <Word key={counter}>
@@ -77,6 +90,13 @@ class LessonsPage extends Component {
           </Word>
         ))}
       </div>
+      {this.state.stop ? <div className="rank">
+        <h3 className="rank_title">Rank</h3>
+        {this.state.ranks.map((rank,index) => (
+          <MemberItem key={index} rank={rank} />
+        ))}
+      </div> : ''}
+      </>
     );
   }
 }
