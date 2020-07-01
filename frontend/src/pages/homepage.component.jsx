@@ -11,33 +11,27 @@ class HomePage extends Component {
     this.state = {
       text: [],
       rank: RANK_DATA,
+      isLoading: true,
     };
   }
   componentDidMount = async () => {
-    API.get(`lessons`)
+    await API.get(`lessons`)
       .then((res) => {
         const text = res.data;
         this.setState({ text: text });
       })
       .catch((error) => console.log(error));
 
-    // this.arrLetter = this.text.split("");
-    // this.arrWord = this.text.split(" ").map((word) => [...word.split(""), " "]);
-    // this.arrWord[this.arrWord.length - 1].pop();
-
-    // const body = document.getElementById("bodyApp");
-    // body.onkeydown = (event) => {
-    //   if (event.key === this.arrLetter[this.state.currentLetter]) {
-    //     this.setState({
-    //       currentLetter: this.state.currentLetter + 1,
-    //     });
-    //   }
-    // };
+    this.setState({
+      isLoading: false,
+    });
   };
 
   render() {
-    const { rank, text } = this.state;
-    return (
+    const { rank, text, isLoading } = this.state;
+    return isLoading ? (
+      ""
+    ) : (
       <>
         <div className="directory">
           <h3>Getting Started</h3>
