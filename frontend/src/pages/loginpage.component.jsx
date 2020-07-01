@@ -30,7 +30,7 @@ class LoginPage extends Component {
         const user = res.data;
         localStorage.setItem("user", user);
         auth.login(() => {
-          this.props.history.push(`${localStorage.getItem("pathname")}`);
+          this.props.history.push(`/`);
         });
       })
       .catch((error) => console.log(error));
@@ -43,12 +43,15 @@ class LoginPage extends Component {
           <div className="login-form-login">
             <h3 className="login-title">Student Login</h3>
             <div className="login-group-autho-btn">
-              <div className="login-autho-btn">
+              <div
+                className="login-autho-btn"
+                onClick={() => this.props.history.push("/register")}
+              >
                 <div className="login-brand_logo">
                   <img className="login-autho_brand_img" src={logo} />
                 </div>
                 <span className="login-autho_brand_text">
-                  Log in with Google
+                  Register an account
                 </span>
               </div>
             </div>
