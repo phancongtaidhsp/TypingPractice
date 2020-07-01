@@ -11,7 +11,9 @@ class LessonsPage extends Component {
       text: [],
       arrLetter: [],
       arrWord: [],
-      currentLetter: 1,
+      currentLetter: 0,
+      accuracy: 0,
+      score: 0,
       id: null,
     };
   }
@@ -20,7 +22,7 @@ class LessonsPage extends Component {
     await API.get(`lessons/${id}`)
       .then((res) => {
         let text = res.data.content;
-        console.log(text)
+        console.log(res.data)
         this.setState({ text: text, id: id });
         let arrLetter = text.split("");
         let arrWord = text.split(" ").map((word) => [...word.split(""), " "]);
@@ -28,7 +30,21 @@ class LessonsPage extends Component {
         this.setState({text: text, arrLetter: arrLetter, arrWord: arrWord})
         const body = document.getElementById("bodyApp");
         body.onkeydown = (event) => {
-          if (event.key === this.state.arrLetter[this.state.currentLetter]) {
+          if(this.state.currentLetter >= this.state.arrLetter.length){
+            this.setState({score: this.state.accuracy/this.state.arrLetter.length})
+            API.post('scores/saveScore', {lesson_id: id, score: this.state.score})
+            .then((res) => {
+              console.log(res.data)
+            })
+            .catch((error) => console.log(error));
+          }
+          else if (event.key === this.state.arrLetter[this.state.currentLetter]) {
+            this.setState({
+              accuracy: this.state.accuracy + 1,
+              currentLetter: this.state.currentLetter + 1,
+            });
+          }
+          else{
             this.setState({
               currentLetter: this.state.currentLetter + 1,
             });
@@ -40,8 +56,7 @@ class LessonsPage extends Component {
 
   render() {
 
-    const { currentLetter, arrWord, arrLetter } = this.state;
-    console.log(arrWord)
+    const { currentLetter, arrWord } = this.state;
     let counter = -1;
     return (
       <div className="App">

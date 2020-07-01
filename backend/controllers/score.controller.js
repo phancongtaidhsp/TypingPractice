@@ -2,7 +2,7 @@ const Score = require('../models/user.model');
 
 module.exports.saveScore = async (req, res) => {
   var score = {
-    user_id: req.signedCookies.userId,
+    user_id: req.body.userId,
     lesson_id: req.body.lesson_id,
     score: req.body.score
   }
