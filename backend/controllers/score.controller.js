@@ -1,4 +1,4 @@
-const Score = require('../models/user.model');
+const Score = require('../models/score.model');
 
 module.exports.saveScore = async (req, res) => {
   var score = {

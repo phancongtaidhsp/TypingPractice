@@ -27,7 +27,8 @@ class LoginPage extends Component {
     API.post(`auth/login`, { username, password })
       .then((res) => {
         const user = res.data;
-        localStorage.setItem("user", user);
+        console.log(res.data)
+        localStorage.setItem("userId", user.userId);
         auth.login(() => {
           this.props.history.push(`${localStorage.getItem("pathname")}`);
         });

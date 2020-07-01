@@ -30,13 +30,15 @@ class LessonsPage extends Component {
         this.setState({text: text, arrLetter: arrLetter, arrWord: arrWord})
         const body = document.getElementById("bodyApp");
         body.onkeydown = (event) => {
-          if(this.state.currentLetter >= this.state.arrLetter.length){
+          if(this.state.currentLetter + 1 === this.state.arrLetter.length){
             this.setState({score: this.state.accuracy/this.state.arrLetter.length})
-            API.post('scores/saveScore', {lesson_id: id, score: this.state.score})
+            const userId = localStorage.getItem('userId')
+            API.post('scores/saveScore', {userId ,lesson_id: id, score: this.state.score})
             .then((res) => {
               console.log(res.data)
             })
             .catch((error) => console.log(error));
+            this.setState({currentLetter: this.state.currentLetter + 1})
           }
           else if (event.key === this.state.arrLetter[this.state.currentLetter]) {
             this.setState({
