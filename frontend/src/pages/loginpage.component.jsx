@@ -65,7 +65,6 @@ class LoginPage extends Component {
                     <img
                       className="login-autho_brand_img"
                       src="service-google.svg"
-                      alt
                     />
                   </div>
                   <span className="login-autho_brand_text">

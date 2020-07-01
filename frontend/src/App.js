@@ -13,28 +13,6 @@ class App extends Component {
     super();
   }
   render() {
-    // const { currentLetter } = this.state;
-    // let counter = -1;
-    // return (
-    //   <div className="App">
-    //     {this.arrWord.map((word) => (
-    //       <Word key={counter}>
-    //         {word.map((letter) => {
-    //           counter++;
-    //           return (
-    //             <Letter
-    //               currentLetter={currentLetter}
-    //               index={counter}
-    //               key={counter}
-    //             >
-    //               {letter}
-    //             </Letter>
-    //           );
-    //         })}
-    //       </Word>
-    //     ))}
-    //   </div>
-    // );
 
     return (
       <>
