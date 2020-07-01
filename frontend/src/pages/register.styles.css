@@ -1,0 +1,102 @@
+input.middle:focus {
+  outline-width: 0;
+}
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+.regisPage {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.regisPreview {
+  background: linear-gradient(180deg, #71b16b 0%, #9cc897 100%);
+  height: 100vh;
+  color: #ffffff;
+}
+.regisMain {
+  background: #ffffff;
+  height: 100vh;
+}
+.regisPreview .tileRegis {
+  margin-top: 2rem;
+  font-weight: bolder;
+  font-size: 3.5rem;
+}
+.regisPreview .tileRegis span {
+  font-size: 2rem;
+}
+.regisPreview .subtileRegis {
+  font-size: 2.5rem;
+  margin-top: 2rem;
+}
+.regisPreview .bodyPreview {
+  font-size: 1.5rem;
+  border-bottom: 1px #ffffff solid;
+  margin-top: 2rem;
+}
+.regisPreview .iconRegis {
+  font-size: 3rem;
+  margin-top: 2.5rem;
+}
+.regisPreview .bottomPreview {
+  margin-top: 2rem;
+  font-size: 2rem;
+}
+.regisPreview .bottomPreview button {
+  border: 3px solid #ffffff;
+  box-sizing: border-box;
+  border-radius: 5px;
+  background: linear-gradient(180deg, #71b16b 0%, #9cc897 100%);
+  color: #ffffff;
+  padding: 0px 20px;
+}
+.regisMain .titleMain {
+  font-size: 3.5rem;
+  margin-top: 2rem;
+  text-align: center;
+  color: #71b16b;
+}
+.regisMain .botMain {
+  margin-top: 2rem;
+}
+.regisMain .botMain p {
+  font-size: 1.5rem;
+  color: #d5d5d5;
+  margin-right: 19rem;
+}
+.regisMain .botMain button {
+  font-size: 1.5rem;
+  color: #806823;
+  background: #ffcf46;
+  border-radius: 5px;
+  border: none;
+  padding: 0 20px;
+}
+.formRegis {
+  padding: 0px 20px;
+}
+.formRegis .rowRegis {
+  margin-top: 1rem;
+}
+.formRegis .labelForm {
+  font-size: 2.5rem;
+  color: #a9a9a9;
+  font-weight: 900;
+}
+.formRegis .labelForm span {
+  color: #ce3e44;
+}
+.formRegis input {
+  background: #d8d7d7;
+  /* box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25); */
+  border-radius: 6px;
+  border: none;
+  width: 70%;
+  height: 3rem;
+  font-size: 1.2rem;
+  padding: 0 20px;
+}

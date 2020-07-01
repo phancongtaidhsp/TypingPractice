@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import "./header.styles.css";
 import logo1 from "../../assets/img/logo1.png";
 import logo2 from "../../assets/img/logo2.png";
+import { AuthContext } from "../../App.js";
 
 const Header = (props) => {
   return (
@@ -37,15 +38,22 @@ const Header = (props) => {
         >
           Lessons
         </NavLink>
-        <NavLink
-          tag={Link}
-          className="menu-item"
-          activeClassName="underline"
-          exact
-          to={localStorage.getItem("auth") === "true" ? "/logout" : "/login"}
-        >
-          {localStorage.getItem("auth") === "true" ? "Logout" : "Login"}
-        </NavLink>
+        <AuthContext.Consumer>
+          {({ auth, setAuth }) => (
+            <NavLink
+              tag={Link}
+              className="menu-item"
+              activeClassName="underline"
+              exact
+              to={auth ? "/logout" : "/login"}
+              onClick={() => {
+                auth && setAuth(false);
+              }}
+            >
+              {auth ? "Logout" : "Login"}
+            </NavLink>
+          )}
+        </AuthContext.Consumer>
       </div>
     </div>
   );
