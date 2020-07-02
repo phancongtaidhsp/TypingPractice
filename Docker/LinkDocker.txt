@@ -1,0 +1,7 @@
+Link Docker Hub of Project TypingPractice
+
+https://hub.docker.com/repository/docker/thanduchuy299/typingpractice2.0
+
+Docker commands
+To push a new tag to this repository:
+docker push thanduchuy299/typingpractice2.0:tagname
