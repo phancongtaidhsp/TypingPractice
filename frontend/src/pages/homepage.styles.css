@@ -21,11 +21,10 @@
 */
 .directory {
   width: 30%;
-  display: inline-block;
-  margin-left: 28%;
-  margin-top: 70px;
   background-color: #3295db;
   border-radius: 5px;
+  margin: 30px auto;
+  padding: 10px 0;
 }
 
 .directory h3 {
