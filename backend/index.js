@@ -17,7 +17,7 @@ const scoreRoutes = require('./routes/score.route')
 
 const authUserMiddleware = require("./middlewares/auth-user.middleware");
 
-const port = 3000;
+const port = 2000;
 const app = express();
 
 app.set("view engine", "pug");

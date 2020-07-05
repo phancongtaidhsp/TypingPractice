@@ -12,6 +12,7 @@ class LessonsPage extends Component {
       text: [],
       arrLetter: [],
       arrWord: [],
+      ranks: [],
       currentLetter: 0,
       accuracy: 0,
       stop: false,
@@ -34,6 +35,7 @@ class LessonsPage extends Component {
         body.onkeydown = (event) => {
           if(!this.state.stop){
             if(this.state.currentLetter + 1 === this.state.arrLetter.length){
+              this.setState({stop: true})
               if (event.key === this.state.arrLetter[this.state.currentLetter]) {
                 this.setState({
                   accuracy: this.state.accuracy + 1,
@@ -42,12 +44,16 @@ class LessonsPage extends Component {
               }
               this.setState({score: this.state.accuracy/this.state.arrLetter.length})
               const userId = localStorage.getItem('userId')
-              API.post('scores/saveScore', {userId ,lesson_id: id, score: this.state.score})
+              API.post('scores/saveScore', {userId ,lesson_id: id, score: this.state.score*100})
               .then((res) => {
                 console.log(res.data)
               })
               .catch((error) => console.log(error));
-              this.setState({stop: true})
+              API.get(`scores/getRank/${id}`)
+                .then((res) => {
+                  console.log(res.data)
+                  this.setState({ranks: res.data})
+                })
             }
             else if (event.key === this.state.arrLetter[this.state.currentLetter]) {
               this.setState({
