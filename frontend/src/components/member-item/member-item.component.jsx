@@ -14,12 +14,11 @@ const MemberItem = (props) => {
             src={`https://robohash.org/${props.rank.id}?set=set2&size=50x50`}
           />
           <p>{props.rank.username}</p>
+          <p className="right-member">
+            {props.rank.score}
+            <span>t/p</span>
+          </p>
         </div>
-
-        <p className="right-member">
-          {props.rank.score}
-          <span>t/p</span>
-        </p>
       </div>
     </div>
   );

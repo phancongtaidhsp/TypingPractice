@@ -95,29 +95,31 @@ class LessonsPage extends Component {
     let counter = -1;
     return (
       <>
-      <div className="content-practice">
-        {arrWord.map((word) => (
-          <Word key={counter}>
-            {word.map((letter) => {
-              counter++;
-              return (
-                <Letter
-                  status={arrLetter[counter].status}
-                  key={counter}
-                >
-                  {letter}
-                </Letter>
-              );
-            })}
-          </Word>
-        ))}
+      <div className="App">
+        <div className="content-practice">
+          {arrWord.map((word) => (
+            <Word key={counter}>
+              {word.map((letter) => {
+                counter++;
+                return (
+                  <Letter
+                    status={arrLetter[counter].status}
+                    key={counter}
+                  >
+                    {letter}
+                  </Letter>
+                );
+              })}
+            </Word>
+          ))}
+        </div>
+        {this.state.stop ? <div className="rank">
+          <h3 className="rank_title">Rank</h3>
+          {this.state.ranks.map((rank,index) => (
+            <MemberItem key={index} rank={rank} index={index} />
+          ))}
+        </div> : ''}
       </div>
-      {this.state.stop ? <div className="rank">
-        <h3 className="rank_title">Rank</h3>
-        {this.state.ranks.map((rank,index) => (
-          <MemberItem key={index} rank={rank} index={index} />
-        ))}
-      </div> : ''}
       </>
     );
   }
