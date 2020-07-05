@@ -25,46 +25,64 @@ class LessonsPage extends Component {
     await API.get(`lessons/${id}`)
       .then((res) => {
         let text = res.data.content;
-        console.log(res.data)
         this.setState({ text: text, id: id });
-        let arrLetter = text.split("");
+        let arrLetter = text.split("").map(letter => { return { letter: letter, status: 2} });
+        arrLetter[0].status = 0;
         let arrWord = text.split(" ").map((word) => [...word.split(""), " "]);
         arrWord[arrWord.length - 1].pop();
         this.setState({text: text, arrLetter: arrLetter, arrWord: arrWord})
         const body = document.getElementById("bodyApp");
         body.onkeydown = (event) => {
-          if(!this.state.stop){
-            if(this.state.currentLetter + 1 === this.state.arrLetter.length){
-              this.setState({stop: true})
-              if (event.key === this.state.arrLetter[this.state.currentLetter]) {
+          if(event.key !== 'Shift'){
+            if(!this.state.stop){
+              if(this.state.currentLetter + 1 === this.state.arrLetter.length){
+                this.setState({stop: true})
+                if (event.key === this.state.arrLetter[this.state.currentLetter].letter) {
+                  var arrLetter = this.state.arrLetter;
+                  arrLetter[this.state.currentLetter].status = 1
+                  this.setState({
+                    accuracy: this.state.accuracy + 1,
+                    currentLetter: this.state.currentLetter + 1,
+                    arrLetter: arrLetter
+                  });
+                }
+                else{
+                  var arrLetter = this.state.arrLetter;
+                  arrLetter[this.state.currentLetter].status = 1
+                  this.setState({
+                    arrLetter: arrLetter
+                  });
+                }
+                this.setState({score: this.state.accuracy/this.state.arrLetter.length})
+                const userId = localStorage.getItem('userId')
+                API.post('scores/saveScore', {userId ,lesson_id: id, score: Math.round(this.state.score*100)})
+                .then((re) => {
+                  API.get(`scores/getRank/${id}`)
+                  .then((res) => {
+                    this.setState({ranks: res.data})
+                  })
+                })
+                .catch((error) => console.log(error));
+              }
+              else if (event.key === this.state.arrLetter[this.state.currentLetter].letter) {
+                var arrLetter = this.state.arrLetter;
+                arrLetter[this.state.currentLetter].status = 1
+                arrLetter[this.state.currentLetter + 1].status = 0
                 this.setState({
                   accuracy: this.state.accuracy + 1,
                   currentLetter: this.state.currentLetter + 1,
+                  arrLetter: arrLetter
                 });
               }
-              this.setState({score: this.state.accuracy/this.state.arrLetter.length})
-              const userId = localStorage.getItem('userId')
-              API.post('scores/saveScore', {userId ,lesson_id: id, score: this.state.score*100})
-              .then((res) => {
-                console.log(res.data)
-              })
-              .catch((error) => console.log(error));
-              API.get(`scores/getRank/${id}`)
-                .then((res) => {
-                  console.log(res.data)
-                  this.setState({ranks: res.data})
-                })
-            }
-            else if (event.key === this.state.arrLetter[this.state.currentLetter]) {
-              this.setState({
-                accuracy: this.state.accuracy + 1,
-                currentLetter: this.state.currentLetter + 1,
-              });
-            }
-            else{
-              this.setState({
-                currentLetter: this.state.currentLetter + 1,
-              });
+              else{
+                var arrLetter = this.state.arrLetter;
+                arrLetter[this.state.currentLetter].status = -1
+                arrLetter[this.state.currentLetter + 1].status = 0
+                this.setState({
+                  currentLetter: this.state.currentLetter + 1,
+                  arrLetter: arrLetter
+                });
+              }
             }
           }
         };
@@ -73,20 +91,18 @@ class LessonsPage extends Component {
   };
 
   render() {
-
-    const { currentLetter, arrWord } = this.state;
+    const { arrLetter, arrWord } = this.state;
     let counter = -1;
     return (
       <>
-      <div className="App">
+      <div className="content-practice">
         {arrWord.map((word) => (
           <Word key={counter}>
             {word.map((letter) => {
               counter++;
               return (
                 <Letter
-                  currentLetter={currentLetter}
-                  index={counter}
+                  status={arrLetter[counter].status}
                   key={counter}
                 >
                   {letter}
@@ -99,7 +115,7 @@ class LessonsPage extends Component {
       {this.state.stop ? <div className="rank">
         <h3 className="rank_title">Rank</h3>
         {this.state.ranks.map((rank,index) => (
-          <MemberItem key={index} rank={rank} />
+          <MemberItem key={index} rank={rank} index={index} />
         ))}
       </div> : ''}
       </>

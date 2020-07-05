@@ -26,17 +26,16 @@ module.exports.getRankByLessonId = async (req, res) => {
 
   if(scores.length > 1){
     scores.sort((a,b) => {
-      return parseInt(b.score) - parseInt(a.score)
+      return b.score - a.score
     })
   }
   if(scores.length > 4) scores = scores.slice(0,4)
   var result = scores.map(async score => {
-    return await User.findById(score.user_id, function (err, doc) {
-      if(doc)
-        return { username: doc.username, score: score.score }
-    })
+    var user =  await User.findById(score.user_id)
+    if(user) return { username: user.username , score: score.score}
   })
   Promise.all(result).then((values) => {
+    console.log(values)
     res.status(200).send(values)
   })
 }

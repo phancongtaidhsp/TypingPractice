@@ -1,6 +1,7 @@
 .letter {
   margin: 5px 2px 5px 0px;
   display: inline-block;
+  text-align: center;
   font-size: 30px;
   min-width: 16px;
 }
@@ -10,9 +11,13 @@
   animation-duration: 1s;
   animation-iteration-count: infinite;
 }
-.isDone{
+.isExactly{
   color: rgb(125, 202, 117);
   background-color: rgba(149,197,144, 0.4);
+}
+.isFail{
+  color: #D55B60;
+  background-color: #FFDCD9;
 }
 @keyframes active {
   0% { border-bottom: 3px solid rgba(50,149,219,1); }
