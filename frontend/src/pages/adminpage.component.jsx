@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./adminpage.style.css";
-import API from "../api";
+import axios from "axios";
 
 class AdminPage extends Component {
   constructor(props) {
@@ -26,7 +26,7 @@ class AdminPage extends Component {
 
   handleSubmit(event) {
     event.preventDefault()
-    API.post(`lessons/newLesson`, this.state.lesson)
+    axios.post(`/lessons/newLesson`, this.state.lesson)
       .then((res) => {
         this.setState({listLesson: [...this.state.listLesson,res.data]})
       })
@@ -35,7 +35,7 @@ class AdminPage extends Component {
   }
 
   onDeleteLesson(id){
-    API.delete(`lessons/${id}`)
+    axios.delete(`/lessons/${id}`)
       .then((res) => {
         var les = this.state.listLesson.find(lesson => {
           return lesson._id === id
@@ -49,7 +49,7 @@ class AdminPage extends Component {
   onUpdateLesson(event,id){
     var childNodes = event.target.parentElement.parentElement.parentElement.childNodes
     var lesson = {name : childNodes[1].innerText, content: childNodes[2].innerText, level: childNodes[3].innerText}
-    API.put(`lessons/updateLesson/${id}`,lesson)
+    axios.put(`/lessons/updateLesson/${id}`,lesson)
       .then((res) => {
         var les = this.state.listLesson.find(item => {
           return item._id === id
@@ -66,7 +66,7 @@ class AdminPage extends Component {
   }
 
   async componentDidMount() {
-    await API.get(`lessons`)
+    await axios.get(`/lessons`)
       .then((res) => {
         this.setState({ listLesson: res.data });
       })

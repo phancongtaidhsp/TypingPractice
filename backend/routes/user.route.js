@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
+const authUserMiddleware = require('../middlewares/auth-user.middleware')
 const controller = require('../controllers/user.controller');
-const userValidate = require('../validate/user.validate');
 
-router.get('/getProfile', controller.get);
+router.get('/getProfile', authUserMiddleware.requireAuth, controller.get);
 
-router.put('/update' , controller.update)
+router.put('/update' , authUserMiddleware.requireAuth, controller.update)
 
 module.exports = router;

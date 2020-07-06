@@ -3,7 +3,7 @@ import "./homepage.styles.css";
 import DirectoryItem from "../components/directory-item/directory-item.component";
 import MemberItem from "../components/member-item/member-item.component";
 import RANK_DATA from "./rank.data";
-import API from "../api";
+import axios from "axios";
 
 class HomePage extends Component {
   constructor() {
@@ -15,7 +15,7 @@ class HomePage extends Component {
     };
   }
   componentDidMount = async () => {
-    await API.get(`lessons`)
+    await axios.get(`/lessons`)
       .then((res) => {
         const text = res.data;
         this.setState({ text: text });

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./lessonspage.styles.css";
-import API from "../api";
+import axios from "axios";
 import Word from "../components/Word/Word"
 import Letter from "../components/Letter/Letter"
 import MemberItem from "../components/member-item/member-item.component"
@@ -22,7 +22,7 @@ class LessonsPage extends Component {
   }
   componentDidMount = async () => {
     let { id } = this.props.match.params;
-    await API.get(`lessons/${id}`)
+    await axios.get(`/lessons/${id}`)
       .then((res) => {
         let text = res.data.content;
         this.setState({ text: text, id: id });
@@ -55,9 +55,9 @@ class LessonsPage extends Component {
                 }
                 this.setState({score: this.state.accuracy/this.state.arrLetter.length})
                 const userId = localStorage.getItem('userId')
-                API.post('scores/saveScore', {userId ,lesson_id: id, score: Math.round(this.state.score*100)})
+                axios.post('/scores/saveScore', {userId ,lesson_id: id, score: Math.round(this.state.score*100)})
                 .then((re) => {
-                  API.get(`scores/getRank/${id}`)
+                  axios.get(`/scores/getRank/${id}`)
                   .then((res) => {
                     this.setState({ranks: res.data})
                   })

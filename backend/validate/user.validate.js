@@ -6,7 +6,7 @@ module.exports.validateUserInput = async (req, res, next) => {
       errors.push('Name is required.');
   }
   if(!req.body.password){
-      errors.push('Phone is required.');
+      errors.push('Password is required.');
   }
   if(errors.length) {
     res.status(400).send(errors)

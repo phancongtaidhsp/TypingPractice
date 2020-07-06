@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import API from "../api";
+import axios from "axios";
 import { withRouter } from "react-router-dom";
 import auth from "../auth.js";
 import "./register.styles.css";
@@ -29,7 +29,7 @@ class Register extends Component {
 
   handleSubmit(event) {
     const { username, password, email } = this.state;
-    API.post(`auth/register`, { username, password, email })
+    axios.post(`/auth/register`, { username, password, email })
       .then((res) => {
         const user = res.data;
         console.log(res.data)

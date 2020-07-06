@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import API from "../api";
+import axios from "axios";
 import { Redirect, withRouter } from "react-router-dom";
 import "./loginpage.style.css";
 import auth from "../auth.js";
-import logo from "../assets/img/Zeplin.app.svg";
+import logo from "../assets/img/logo2.png";
 import { AuthContext } from "../App.js";
 
 class LoginPage extends Component {
@@ -25,10 +25,10 @@ class LoginPage extends Component {
 
   handleSubmit(setAuth) {
     const { username, password } = this.state;
-    API.post(`auth/login`, { username, password })
+    axios.post(`/auth/login`, { username, password }, {credentials: 'same-origin'})
       .then((res) => {
         const user = res.data;
-        localStorage.setItem("userId", user.userId);
+        // localStorage.setItem("userId", user.userId);
         auth.login(() => {
           this.props.history.push(`/`);
         });
