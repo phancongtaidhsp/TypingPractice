@@ -15,12 +15,12 @@ module.exports.get = async (req, res) => {
   })
 }
 
-module.exports.postCreate = async (req, res) => {
-  await Lesson.create(req.body).catch(err => {
-    res.status(500).send('Failed with internal server error')
-    return
+module.exports.postCreate = (req, res) => {
+  Lesson.create(req.body).then(lesson => {
+    res.status(200).send(lesson)
+  }).catch(err => {
+    res.status(500).send(err)
   })
-  res.status(200).send(req.body)
 }
 
 module.exports.delete = async (req, res) => {
@@ -42,6 +42,6 @@ module.exports.update = async (req, res) => {
     doc.name = req.body.name ? req.body.name : doc.name;
     doc.content = req.body.content ? req.body.content : doc.content;
     doc.level = req.body.level ? req.body.level : doc.level;
-    doc.save(() => res.status(200).send('Update Lesson Successful'));
+    doc.save(() => res.status(200).send(doc));
   });
 }

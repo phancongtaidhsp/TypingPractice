@@ -4,11 +4,13 @@ import HomePage from "./pages/homepage.component";
 import LessonsPage from "./pages/lessonspage.component";
 import LoginPage from "./pages/loginpage.component";
 import LogoutPage from "./pages/logout.component";
+import AdminPage from "./pages/adminpage.component"
 import Header from "./components/header/header.component";
 import { Route, Switch } from "react-router-dom";
 import { ProtectedRoute } from "./protected.route";
 import { ProtectedSignUpRoute } from "./protectedSignUp.route";
 import Register from "./pages/register.component";
+
 export const AuthContext = React.createContext({
   auth: false,
   setAuth: function (auth) {
@@ -46,6 +48,7 @@ class App extends Component {
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/logout" component={LogoutPage} />
             <ProtectedSignUpRoute exact path="/register" component={Register} />
+            <Route path="/admin" component={AdminPage}></Route>
           </Switch>
         </AuthContext.Provider>
       </>
