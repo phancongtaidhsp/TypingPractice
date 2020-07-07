@@ -16,6 +16,7 @@ const lessonRoutes = require('./routes/lesson.route')
 const scoreRoutes = require('./routes/score.route')
 
 const authUserMiddleware = require("./middlewares/auth-user.middleware");
+const authAdminMiddleware = require("./middlewares/auth-admin.middleware")
 
 const port = 2000;
 const app = express();
@@ -56,6 +57,10 @@ app.get("/", (req, res) =>
     name: "Phan Cong Tai",
   })
 );
+
+app.get("/admin",authUserMiddleware.requireAuth,authAdminMiddleware.requireAuthAdmin , (req, res) => {
+  res.status(200).send("Access Allowed")
+})
 
 app.use('/scores', scoreRoutes);
 

@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import "./adminpage.style.css";
+import ForBiddenPage from "./forbiddenpage.component"
+import { BoxLoading } from 'react-loadingg'
 import axios from "axios";
 
 class AdminPage extends Component {
   constructor(props) {
     super(props);
-    this.state = { lesson: { name: '', content: '', level: '' }, listLesson: [] };
+    this.state = { lesson: { name: '', content: '', level: '' }, listLesson: [], isAdmin: false, isLoading: true };
     this.handleChangeLessonName = this.handleChangeLessonName.bind(this);
     this.handleChangeLessonLevel = this.handleChangeLessonLevel.bind(this);
     this.handleChangeLessonContent = this.handleChangeLessonContent.bind(this);
@@ -65,17 +67,26 @@ class AdminPage extends Component {
     event.target.focus();
   }
 
-  async componentDidMount() {
-    await axios.get(`/lessons`)
+  componentDidMount() {
+    axios.get(`/admin`)
+    .then((res) => {
+      this.setState({isAdmin: true})
+      axios.get(`/lessons`)
       .then((res) => {
-        this.setState({ listLesson: res.data });
+        this.setState({ listLesson: res.data, isLoading: false });
       })
       .catch((error) => console.log(error));
+
+    }).catch(err => {
+      this.setState({isAdmin: false})
+      this.setState({isLoading: false})
+      console.log(err)
+    })
   }
 
   render() {
-    const { listLesson } = this.state;
-
+    const { listLesson, isAdmin, isLoading  } = this.state;
+    if(isAdmin && !isLoading)
     return (
       <div>
         <div className="container">
@@ -128,6 +139,14 @@ class AdminPage extends Component {
           </div>
         </div>
       </div>
+    )
+    else if(!isAdmin && !isLoading)
+    return (
+      <ForBiddenPage />
+    )
+    else
+    return (
+      <BoxLoading />
     )
   }
 }
