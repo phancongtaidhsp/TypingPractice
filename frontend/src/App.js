@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import "./App.css";
-import HomePage from "./pages/homepage.component";
+import LessonPage from "./pages/lessonpage.component";
 import LessonDetail from "./pages/lessondetail.component";
 import LoginPage from "./pages/loginpage.component";
 import LogoutPage from "./pages/logout.component";
 import AdminPage from "./pages/adminpage.component"
+import HomePage from "./pages/homepage.component"
 import Header from "./components/header/header.component";
 import { Route, Switch } from "react-router-dom";
 import ProtectedRoute from "./protected.route";
@@ -38,6 +39,7 @@ class App extends Component {
           <Header></Header>
           <Switch>
             <Route exact path="/" component={HomePage} />
+            <Route exact path="/lessons" component={LessonPage} />
             <ProtectedRoute path="/lessons/:id" component={LessonDetail}/>
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/logout" component={LogoutPage} />
