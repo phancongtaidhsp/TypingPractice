@@ -3,11 +3,11 @@ const User = require('../models/user.model');
 
 module.exports.saveScore = async (req, res) => {
   var score = {
-    user_id: req.body.userId,
+    user_id: req.signedCookies.userId,
     lesson_id: req.body.lesson_id,
     score: req.body.score
   }
-  Score.findOne({user_id: score.user_id}, (err, doc) => {
+  Score.findOne({user_id: score.user_id, lesson_id: score.lesson_id}, (err, doc) => {
     if(doc){
       doc.score = score.score
       doc.save(() => res.status(200).send(doc))
@@ -35,7 +35,6 @@ module.exports.getRankByLessonId = async (req, res) => {
     if(user) return { username: user.username , score: score.score}
   })
   Promise.all(result).then((values) => {
-    console.log(values)
     res.status(200).send(values)
   })
 }

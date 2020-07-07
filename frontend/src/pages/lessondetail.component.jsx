@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import "./lessonspage.styles.css";
+import "./lessondetail.styles.css";
 import axios from "axios";
 import Word from "../components/Word/Word"
 import Letter from "../components/Letter/Letter"
 import MemberItem from "../components/member-item/member-item.component"
 
-class LessonsPage extends Component {
+class LessonDetail extends Component {
   constructor() {
     super();
     this.state = {
@@ -20,6 +20,7 @@ class LessonsPage extends Component {
       id: null,
     };
   }
+  
   componentDidMount = async () => {
     let { id } = this.props.match.params;
     await axios.get(`/lessons/${id}`)
@@ -55,7 +56,7 @@ class LessonsPage extends Component {
                 }
                 this.setState({score: this.state.accuracy/this.state.arrLetter.length})
                 const userId = localStorage.getItem('userId')
-                axios.post('/scores/saveScore', {userId ,lesson_id: id, score: Math.round(this.state.score*100)})
+                axios.post('/scores/saveScore', {lesson_id: id, score: Math.round(this.state.score*100)})
                 .then((re) => {
                   axios.get(`/scores/getRank/${id}`)
                   .then((res) => {
@@ -125,4 +126,4 @@ class LessonsPage extends Component {
   }
 }
 
-export default LessonsPage;
+export default LessonDetail;

@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
-import auth from "../auth.js";
+import { Redirect } from "react-router-dom";
 import "./register.styles.css";
 
 class Register extends Component {
   constructor(props) {
     super(props);
-    this.state = {username: '', password: '', email: ''};
+    this.state = {username: '', password: '', email: '', isDoneRegister: false};
 
     this.handleChangeUsername = this.handleChangeUsername.bind(this);
     this.handleChangePassword = this.handleChangePassword.bind(this);
@@ -28,20 +28,17 @@ class Register extends Component {
   }
 
   handleSubmit(event) {
+    event.preventDefault()
     const { username, password, email } = this.state;
     axios.post(`/auth/register`, { username, password, email })
       .then((res) => {
-        const user = res.data;
-        console.log(res.data)
-        localStorage.setItem("userId", user.userId);
-        auth.login(() => {
-          this.props.history.push(`/`);
-        });
+        this.setState({isDoneRegister: true})
       })
       .catch((error) => console.log(error));
   }
 
   render() {
+    if(!this.state.isDoneRegister)
     return (
       <>
         <div className="container-fluid regisPage">
@@ -112,6 +109,13 @@ class Register extends Component {
           </div>
         </div>
       </>
+    );
+    else return (
+      <Redirect
+        to={{
+          pathname: "/login",
+        }}
+      />
     );
   }
 }

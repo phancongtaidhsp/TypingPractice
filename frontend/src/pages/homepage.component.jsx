@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./homepage.styles.css";
 import DirectoryItem from "../components/directory-item/directory-item.component";
 import MemberItem from "../components/member-item/member-item.component";
-import RANK_DATA from "./rank.data";
+import { BoxLoading } from 'react-loadingg';
 import axios from "axios";
 
 class HomePage extends Component {
@@ -10,7 +10,6 @@ class HomePage extends Component {
     super();
     this.state = {
       text: [],
-      rank: RANK_DATA,
       isLoading: true,
     };
   }
@@ -19,18 +18,17 @@ class HomePage extends Component {
       .then((res) => {
         const text = res.data;
         this.setState({ text: text });
+        this.setState({
+          isLoading: false,
+        });
       })
       .catch((error) => console.log(error));
-
-    this.setState({
-      isLoading: false,
-    });
   };
 
   render() {
-    const { rank, text, isLoading } = this.state;
+    const { text, isLoading } = this.state;
     return isLoading ? (
-      ""
+      <BoxLoading />
     ) : (
       <>
         <div className="directory">

@@ -2,14 +2,13 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Redirect, withRouter } from "react-router-dom";
 import "./loginpage.style.css";
-import auth from "../auth.js";
 import logo from "../assets/img/logo2.png";
-import { AuthContext } from "../App.js";
+import { AuthContext } from "../AuthContext";
 
 class LoginPage extends Component {
   constructor(props) {
     super(props);
-    this.state = { username: "", password: "" };
+    this.state = { username: "", password: "", isLoggin: false};
     this.handleChangeUsername = this.handleChangeUsername.bind(this);
     this.handleChangePassword = this.handleChangePassword.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -25,19 +24,18 @@ class LoginPage extends Component {
 
   handleSubmit(setAuth) {
     const { username, password } = this.state;
-    axios.post(`/auth/login`, { username, password }, {credentials: 'same-origin'})
+    axios.post(`/auth/login`, { username, password })
       .then((res) => {
         const user = res.data;
-        // localStorage.setItem("userId", user.userId);
-        auth.login(() => {
-          this.props.history.push(`/`);
-        });
-        setAuth && setAuth(true);
+        setAuth(true)
+        this.setState({isLoggin: true})
       })
       .catch((error) => console.log(error));
   }
 
   render() {
+    const path = localStorage.getItem('pathname') ? localStorage.getItem('pathname') : '/';
+    if(!this.state.isLoggin)
     return (
       <AuthContext.Consumer>
         {({ auth, setAuth }) => (
@@ -108,6 +106,13 @@ class LoginPage extends Component {
           </>
         )}
       </AuthContext.Consumer>
+    );
+    else return (
+      <Redirect
+        to={{
+          pathname: `${path}`,
+        }}
+      />
     );
   }
 }

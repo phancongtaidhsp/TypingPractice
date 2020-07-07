@@ -18,7 +18,7 @@ module.exports.postLogin = async (req,res) => {
     return;
   }
   res.cookie('userId',user.id, { signed: true })
-  res.status(200).send({userId: user.id, username : username})
+  res.status(200).send({username : username})
 }
 
 module.exports.logout = async (req, res) => {
@@ -31,12 +31,11 @@ module.exports.create = (req, res) => {
 }
 
 module.exports.postCreate = async (req, res) => {
-  console.log(req.body)
   req.body.id = shortid.generate();
   req.body.password = md5(req.body.password);
   req.body.role = 'user'
   var user = await User.create(req.body).catch(err => {
     res.status(500).send('Failed with internal server error')
   })
-  res.status(200).send({userId: user._id, username : user.username})
+  res.status(200).send({username : user.username})
 }

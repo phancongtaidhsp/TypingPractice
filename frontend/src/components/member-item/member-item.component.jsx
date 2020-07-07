@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import "./member-item.styles.css";
 
 const MemberItem = (props) => {
-  console.log(props)
   return (
     <div className="member-item d-flex">
       <div className="member-id d-flex align-items-center">{props.index + 1}</div>

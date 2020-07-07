@@ -1,25 +1,38 @@
-import React from "react";
+import React, {Component} from "react";
 import { Route, Redirect } from "react-router-dom";
-import auth from "./auth";
+import { AuthContext } from "./AuthContext"
 
-export const ProtectedSignUpRoute = ({ component: Component, ...rest }) => {
-  return (
-    <Route
-      {...rest}
-      render={(props) => {
-        if (!auth.isAuthenticated()) {
-          return <Component {...props} />;
-        } else {
-          //   localStorage.setItem("pathname", props.location.pathname);
-          return (
-            <Redirect
-              to={{
-                pathname: "/",
-              }}
-            />
-          );
-        }
-      }}
-    />
-  );
+class ProtectedSignUpRoute extends Component {
+
+  constructor(props){
+    super(props)
+  }
+
+  render(){
+    const {auth} = this.context;
+    const { component: Component, ...rest } = this.props
+    return (
+      <Route
+        {...rest}
+        render={(props) => {
+          if (!auth) {
+            return <Component {...props} />;
+          } else {
+            //   localStorage.setItem("pathname", props.location.pathname);
+            return (
+              <Redirect
+                to={{
+                  pathname: "/",
+                }}
+              />
+            );
+          }
+        }}
+      />
+    );
+  }
 };
+
+ProtectedSignUpRoute.contextType = AuthContext
+
+export default ProtectedSignUpRoute;

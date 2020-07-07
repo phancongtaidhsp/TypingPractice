@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import "./header.styles.css";
 import logo1 from "../../assets/img/logo1.png";
 import logo2 from "../../assets/img/logo2.png";
-import { AuthContext } from "../../App.js";
+import { AuthContext } from "../../AuthContext";
 
 const Header = (props) => {
   return (
@@ -34,7 +34,7 @@ const Header = (props) => {
           className="menu-item"
           activeClassName="underline"
           exact
-          to={"/lessons/5ef9a26528aab015a45c2fa4"}
+          to={"/lessons"}
         >
           Lessons
         </NavLink>
