@@ -110,7 +110,7 @@ class LoginPage extends Component {
     else return (
       <Redirect
         to={{
-          pathname: `${path}`,
+          pathname: `/lessons`,
         }}
       />
     );

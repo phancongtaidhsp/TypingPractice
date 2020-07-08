@@ -12,41 +12,50 @@ import ProtectedRoute from "./protected.route";
 import Cookies from 'js-cookie';
 import ProtectedSignUpRoute from "./protectedSignUp.route";
 import Register from "./pages/register.component";
-import {AuthContext} from "./AuthContext";
+import { AuthContext } from "./AuthContext";
+import { LessonsContext } from "./LessonsContext"
 
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      auth: Cookies.get('userId') ? true : false
+      auth: Cookies.get('userId') ? true : false,
+      text: []
     };
   }
 
   render() {
-    const self = this;
-
     return (
       <>
-        <AuthContext.Provider
-          value={{
-            auth: this.state.auth,
-            setAuth: (auth) => {
-              self.setState({ auth });
-            },
-          }}
-        >
-          <Header></Header>
-          <Switch>
-            <Route exact path="/" component={HomePage} />
-            <Route exact path="/lessons" component={LessonPage} />
-            <ProtectedRoute path="/lessons/:id" component={LessonDetail}/>
-            <Route exact path="/login" component={LoginPage} />
-            <Route exact path="/logout" component={LogoutPage} />
-            <ProtectedSignUpRoute exact path="/register" component={Register} />
-            <Route path="/admin" component={AdminPage}></Route>
-          </Switch>
-        </AuthContext.Provider>
+          <AuthContext.Provider
+            value={{
+              auth: this.state.auth,
+              setAuth: (auth) => {
+                this.setState({ auth });
+              },
+            }}
+          >
+            <LessonsContext.Provider
+              value={{
+                text: this.state.text,
+                setText: (text) => {
+                  this.setState({ text });
+                }
+              }}
+            >
+              <Header></Header>
+              <Switch>
+                <Route exact path="/" component={HomePage} />
+                <Route exact path="/lessons" component={LessonPage} />
+                <ProtectedRoute path="/lessons/:id" component={LessonDetail} />
+                <Route exact path="/login" component={LoginPage} />
+                <Route exact path="/logout" component={LogoutPage} />
+                <ProtectedSignUpRoute exact path="/register" component={Register} />
+                <Route path="/admin" component={AdminPage}></Route>
+              </Switch>
+            </LessonsContext.Provider>
+          </AuthContext.Provider>
       </>
     );
   }

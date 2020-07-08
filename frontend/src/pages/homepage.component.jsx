@@ -166,7 +166,7 @@ class HomePage extends Component {
             <div className="row features">
               <div className="col-4 col-xs-12">
                 <div className="col-12 d-flex flex-column itemFeatures justify-content-center align-items-center">
-                  <img src="/music.png" alt />
+                  <img src="/music.png" />
                   <p>
                     User can hear a unique audible tone signalling when a new word is
                     displayed, a word is correctly entered, or an incorrect letter is
@@ -176,7 +176,7 @@ class HomePage extends Component {
               </div>
               <div className="col-4 col-xs-12">
                 <div className="col-12 d-flex flex-column itemFeatures justify-content-center align-items-center">
-                  <img src="/coronavirus.png" alt />
+                  <img src="/coronavirus.png" />
                   <p>
                     User can see cumulative performance statistics across all of
                     his/her practice sessions.
@@ -185,7 +185,7 @@ class HomePage extends Component {
               </div>
               <div className="col-4 col-xs-12">
                 <div className="col-12 d-flex flex-column itemFeatures justify-content-center align-items-center">
-                  <img src="/login.png" alt />
+                  <img src="/login.png" />
                   <p>User can login to the app</p>
                 </div>
               </div>

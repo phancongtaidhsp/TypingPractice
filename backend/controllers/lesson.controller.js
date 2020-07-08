@@ -1,4 +1,5 @@
 const Lesson = require('../models/lesson.model');
+const Score = require('../models/score.model')
 
 module.exports.index = (req, res) => {
   Lesson.find().then(lessons => {
@@ -25,10 +26,12 @@ module.exports.postCreate = (req, res) => {
 
 module.exports.delete = async (req, res) => {
   var id = req.params.id
-  const re = await Lesson.remove({ _id: id }).catch(err => {
+  await Lesson.remove({ _id: id }).catch(err => {
     res.status(500).send('Failed with internal server error')
   });
-  re.deletedCount; // Number of documents removed
+  await Score.remove({ lesson_id: id }).catch(err => {
+    res.status(500).send('Failed with internal server error')
+  });
   res.status(204).send('successful operation')
 }
 

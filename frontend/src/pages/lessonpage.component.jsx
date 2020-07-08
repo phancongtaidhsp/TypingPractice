@@ -4,6 +4,7 @@ import DirectoryItem from "../components/directory-item/directory-item.component
 import MemberItem from "../components/member-item/member-item.component";
 import { BoxLoading } from 'react-loadingg';
 import axios from "axios";
+import {LessonsContext} from "../LessonsContext"
 
 class LessonPage extends Component {
   constructor() {
@@ -17,7 +18,8 @@ class LessonPage extends Component {
     await axios.get(`/lessons`)
       .then((res) => {
         const text = res.data;
-        this.setState({ text: text });
+        this.context.setText(text)
+        this.setState({ text: this.context.text });
         this.setState({
           isLoading: false,
         });
@@ -41,5 +43,7 @@ class LessonPage extends Component {
     );
   }
 }
+
+LessonPage.contextType = LessonsContext;
 
 export default LessonPage;
