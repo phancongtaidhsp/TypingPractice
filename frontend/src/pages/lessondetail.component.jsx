@@ -6,7 +6,9 @@ import Letter from "../components/Letter/Letter"
 import MemberItem from "../components/member-item/member-item.component"
 import { Link } from "react-router-dom";
 import { BoxLoading } from 'react-loadingg'
-import {LessonsContext} from "../LessonsContext"
+import { LessonsContext } from "../LessonsContext"
+import "../components/directory-item/directory-item.styles.css";
+import rectange from ".././assets/img/rectange.png";
 
 class LessonDetail extends Component {
   constructor() {
@@ -26,11 +28,11 @@ class LessonDetail extends Component {
     };
   }
 
-  async myFunction(){
+  async myFunction() {
     let { id } = this.props.match.params;
     let lesson = this.context.text.find(lesson => lesson._id === id)
-    if(lesson){
-      this.setState({nextLesson: this.context.text[this.context.text.indexOf(lesson)+1]})
+    if (lesson) {
+      this.setState({ nextLesson: this.context.text[this.context.text.indexOf(lesson) + 1] })
     }
     await axios.get(`/lessons/${id}`)
       .then((res) => {
@@ -101,24 +103,26 @@ class LessonDetail extends Component {
       .catch((error) => console.log(error));
   }
 
-  componentWillReceiveProps(){
-    this.setState({
-      text: [],
-      arrLetter: [],
-      arrWord: [],
-      ranks: [],
-      currentLetter: 0,
-      accuracy: 0,
-      stop: false,
-      score: 0,
-      id: null,
-      isLoading: true,
-      nextLesson: null
-    })
-    this.myFunction()
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (prevProps !== this.props && prevState.stop) {
+      this.setState({
+        text: [],
+        arrLetter: [],
+        arrWord: [],
+        ranks: [],
+        currentLetter: 0,
+        accuracy: 0,
+        stop: false,
+        score: 0,
+        id: null,
+        isLoading: true,
+        nextLesson: null
+      })
+      this.myFunction()
+    }
   };
 
-  componentDidMount(){
+  componentDidMount() {
     this.myFunction();
   }
 
@@ -156,12 +160,21 @@ class LessonDetail extends Component {
                 {this.state.ranks.map((rank, index) => (
                   <MemberItem key={index} rank={rank} index={index} />
                 ))}
+
+                {(this.state.stop && nextLesson) ?
+                  <div className="directory-item">
+                    <Link className="btn-start" to={`/lessons/${nextLesson._id}`}>
+                      <img src={rectange} alt="icon"></img>
+                  Next lesson
+            </Link>
+                  </div>
+                  : ''}
+                {(this.state.stop && !nextLesson) ? <Link to={`/lessons`}>
+                  Back to lessons page
+            </Link> : ''}
               </div>
             </>
             : ''}
-          {this.state.stop && nextLesson ? <Link to={`/lessons/${nextLesson._id}`}>
-              Next lesson
-            </Link> : ''}
         </div>
       </>
     );
