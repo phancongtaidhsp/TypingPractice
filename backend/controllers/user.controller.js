@@ -23,7 +23,7 @@ module.exports.updateInfo = async (req, res) => {
   });
 }
 
-module.exports.updatePassword = async (req, res) => {
+module.exports.updatePassword = async (req, res,) => {
   User.findById(req.signedCookies.userId, function (err, doc) {
     if (err){
       res.status(500).send('Failed with internal server error')

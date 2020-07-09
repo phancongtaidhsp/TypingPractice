@@ -17,7 +17,7 @@ module.exports.postLogin = async (req,res) => {
     res.status(400).send('Invalid log-in id/password supplied')
     return;
   }
-  res.cookie('userId',user.id, { signed: true })
+  res.cookie('userId',user.id, { signed: true, expires: new Date(Date.now() + 900000000)})
   res.status(200).send({username : user.username, email: user.email, firstname: user.firstname, lastname: user.lastname})
 }
 

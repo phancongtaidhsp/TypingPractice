@@ -7,7 +7,7 @@ import axios from "axios";
 class AdminPage extends Component {
   constructor(props) {
     super(props);
-    this.state = { lesson: { name: '', content: '', level: '' }, listLesson: [], isAdmin: false, isLoading: true };
+    this.state = { lesson: { name: '', content: '', level: '' }, listLesson: [], isAdmin: false, isLoading: true , showingAlert: false};
     this.handleChangeLessonName = this.handleChangeLessonName.bind(this);
     this.handleChangeLessonLevel = this.handleChangeLessonLevel.bind(this);
     this.handleChangeLessonContent = this.handleChangeLessonContent.bind(this);
@@ -44,6 +44,14 @@ class AdminPage extends Component {
         })
         var indexLes = this.state.listLesson.indexOf(les);
         this.setState({listLesson: [...this.state.listLesson.slice(0,indexLes),...this.state.listLesson.slice(indexLes+1)]})
+        this.setState({
+          showingAlert: true
+        });
+        setTimeout(() => {
+          this.setState({
+            showingAlert: false
+          });
+        }, 2000);
       })
       .catch((error) => console.log(error));
   }
@@ -58,6 +66,14 @@ class AdminPage extends Component {
         })
         var indexLes = this.state.listLesson.indexOf(les);
         this.setState({listLesson: [...this.state.listLesson.slice(0,indexLes),res.data,...this.state.listLesson.slice(indexLes+1)]})
+        this.setState({
+          showingAlert: true
+        });
+        setTimeout(() => {
+          this.setState({
+            showingAlert: false
+          });
+        }, 2000);
       })
       .catch((error) => console.log(error));
   }
@@ -85,11 +101,14 @@ class AdminPage extends Component {
   }
 
   render() {
-    const { listLesson, isAdmin, isLoading  } = this.state;
+    const { listLesson, isAdmin, isLoading, showingAlert  } = this.state;
     if(isAdmin && !isLoading)
     return (
       <div>
         <div className="container">
+        <div className={`alert alert-success showingAlert ${showingAlert ? "alert-active" : "alert-close"}`} style={{ width: 600, margin: "10px auto 0" }} role="alert">
+        Lessons has been updated
+      </div>
           <div className="row">
             <form onSubmit={this.handleSubmit} id="formHeader" className="d-flex">
               <div className="leftForm d-flex flex-column justify-content-between">
@@ -125,10 +144,10 @@ class AdminPage extends Component {
                     <td>
                       <div className="rowAction">
                         <button onClick={() => this.onDeleteLesson(lesson._id)} className="deleteAction d-flex align-items-center justify-content-between">
-                          <span>Delete</span> <i className="fas fa-trash-alt" />
+                          Delete<i className="fas fa-trash-alt" />
                         </button>
                         <button onClick={(event) => this.onUpdateLesson(event,lesson._id)} className="updateAction d-flex align-items-center justify-content-between">
-                          <span>Update</span> <i className="fas fa-edit" />
+                          Update<i className="fas fa-edit" />
                         </button>
                       </div>
                     </td>
