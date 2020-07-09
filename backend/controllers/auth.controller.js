@@ -18,7 +18,7 @@ module.exports.postLogin = async (req,res) => {
     return;
   }
   res.cookie('userId',user.id, { signed: true })
-  res.status(200).send({username : username})
+  res.status(200).send({username : user.username, email: user.email, firstname: user.firstname, lastname: user.lastname})
 }
 
 module.exports.logout = async (req, res) => {

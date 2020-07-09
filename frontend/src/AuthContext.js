@@ -4,6 +4,8 @@ import React from "react";
 // https://redux.js.org/api/createstore
 
 export const AuthContext = React.createContext({
+  userinfo: null,
+  setUserInfo: () => {},
   auth: false,
   setAuth: function (auth) {
     // this.auth = auth;

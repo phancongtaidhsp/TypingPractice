@@ -12,6 +12,7 @@ class LogoutPage extends Component{
     axios.get('/auth/logout')
       .then((res) => {
         this.context.setAuth(false)
+        this.context.setUserInfo(null)
       })
       .catch((error) => console.log(error));
   }

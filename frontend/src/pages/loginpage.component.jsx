@@ -22,11 +22,12 @@ class LoginPage extends Component {
     this.setState({ password: event.target.value });
   }
 
-  handleSubmit(setAuth) {
+  handleSubmit(setAuth,setUserInfo) {
     const { username, password } = this.state;
     axios.post(`/auth/login`, { username, password })
       .then((res) => {
         const user = res.data;
+        setUserInfo(user)
         setAuth(true)
         this.setState({isLoggin: true})
       })
@@ -38,7 +39,7 @@ class LoginPage extends Component {
     if(!this.state.isLoggin)
     return (
       <AuthContext.Consumer>
-        {({ auth, setAuth }) => (
+        {({ auth, setAuth, setUserInfo }) => (
           <>
             <section className="login-main">
               <div className="login-form-login">
@@ -93,7 +94,7 @@ class LoginPage extends Component {
                     onClick={(event) => {
                       event.preventDefault();
 
-                      this.handleSubmit(setAuth);
+                      this.handleSubmit(setAuth,setUserInfo);
                     }}
                     type="button"
                     className="login-btn-next btn btn-warning btn-base btn-large"

@@ -1,261 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" type="text/css" href="home.css" />
-		<link
-			href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css"
-			rel="stylesheet"
-			type="text/css"
-		/>
-		<script
-			src="https://kit.fontawesome.com/03752cab9b.js"
-			crossorigin="anonymous"
-		></script>
-		<link
-			rel="stylesheet"
-			href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-			integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-			crossorigin="anonymous"
-		/>
-		<script
-			src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-			integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-			crossorigin="anonymous"
-		></script>
-		<script
-			src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-			integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-			crossorigin="anonymous"
-		></script>
-		<script
-			src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-			integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-			crossorigin="anonymous"
-		></script>
-		<title>Intro Page</title>
-	</head>
-	<body>
-		<div class="page">
-			<div class="container">
-				<div class="row head d-flex justify-content-end">
-					<div
-						class="col-3 col-xs-12 d-flex flex-column justify-content-center pt-4 membersHead"
-					>
-						<div class="dropdown">
-							<button
-								class="btn btn-secondary dropdown-toggle"
-								type="button"
-								id="dropdownMenuButton"
-								data-toggle="dropdown"
-								aria-haspopup="true"
-								aria-expanded="false"
-							>
-								Members
-							</button>
-							<div
-								class="dropdown-menu listMembers"
-								aria-labelledby="dropdownMenuButton"
-							>
-								<a class="dropdown-item bodyMembers d-flex flex-row" href="#">
-									<img src="./images/aihau.jpg" />
-									<p>Nguyễn Thị Ái Hậu</p>
-								</a>
-								<a class="dropdown-item bodyMembers d-flex flex-row" href="#">
-									<img src="./images/congtai .jpg" />
-									<p>Phan Công Tài</p>
-								</a>
-								<a class="dropdown-item bodyMembers d-flex flex-row" href="#">
-									<img src="./images/duchuy.jpg" />
-									<p>Thân Đức Huy</p>
-								</a>
-								<a class="dropdown-item bodyMembers d-flex flex-row" href="#">
-									<img src="./images/quanglinh.jpg" />
-									<p>Nguyễn Quang Linh</p>
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row body d-flex justify-content-center align-items-center">
-					<div class="col-6">
-						<h1 class="title">Typing Practice</h1>
-						<p class="d-flex justify-content-center">
-							Môn Công Cụ Và Môi Trường Phát triển Phần Mềm
-							<br />
-							Thầy Nguyễn Thanh Tuấn Phụ Trách
-						</p>
-						<p class="d-flex justify-content-center">
-							Copyright By Marines Team
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="bottom">
-			<div class="container">
-				<h1>
-					User Stories
-				</h1>
-				<div class="row">
-					<div class="col-12">
-						<ul>
-							<li>
-								<span class="number">1</span>
-								<span class="name"
-									>User can see the time interval words must be typed in
-									displayed in the app window</span
-								>
-								<span class="badge"
-									><i class="far fa-check-circle" aria-hidden="true"></i
-								></span>
-							</li>
-							<li>
-								<span class="number">2</span>
-								<span class="name"
-									>User can see the number of successful attempts and the number
-									of total attempts in a score box</span
-								>
-								<span class="badge"><i class="fas fa-award"></i></span>
-							</li>
-							<li>
-								<span class="number">3</span>
-								<span class="name"
-									>User can click a 'Start Practice' button to start the
-									practice session</span
-								>
-								<span class="badge"
-									><i class="fas fa-child"></i></span>
-							</li>
-							<li>
-								<span class="number">4</span>
-								<span class="name"
-									>User can see the prompt word displayed in a text box</span
-								>
-								<span class="badge"
-									><i class="fas fa-bullhorn"></i></span>
-							</li>
 
-							<li>
-								<span class="number">5</span>
-								<span class="name"
-									>User can begin typing the word in a text input box</span
-								>
-								<span class="badge"
-									><i class="far fa-calendar-alt"></i></i
-								></span>
-							</li>
-							<li>
-								<span class="number">6</span>
-								<span class="name"
-									>User can see the letters that have been typed flash if an
-									incorrect letter is entered and the text input box will be
-									cleared</span
-								>
-								<span class="badge"
-									><i class="fas fa-camera"></i></span>
-							</li>
-							<li>
-								<span class="number">7</span>
-								<span class="name"
-									>User can see the a message adjacent to the text input box
-									indicating the user should try again if an incorrect letter is
-									entered</span
-								>
-								<span class="badge"
-									><i class="far fa-comments"></i></span>
-							</li>
-							<li>
-								<span class="number">8</span>
-								<span class="name"
-									>User can see the number of total attempts incremented in the
-									score box</span
-								>
-								<span class="badge"
-									><i class="fas fa-futbol"></i></span>
-							</li>
-							<li>
-								<span class="number">9</span>
-								<span class="name"
-									>User can see a congratulations message if the word is
-									correctly typed</span
-								>
-								<span class="badge"
-									><i class="fab fa-angrycreative"></i></span>
-							</li>
-							<li>
-								<span class="number">10</span>
-								<span class="name"
-									>User can see the time interval words must be typed
-									decremented by a small amount if the word is correctly
-									typed</span
-								>
-								<span class="badge"
-									><i class="far fa-grin-wink"></i></span>
-							</li>
-							<li>
-								<span class="number">11</span>
-								<span class="name"
-									>User can see the number of successful attempts incremented in
-									the score box if the word was correctly typed</span
-								>
-								<span class="badge"
-									><i class="far fa-id-badge"></i></span>
-							</li>
-							<li>
-								<span class="number">12</span>
-								<span class="name"
-									>User can click a 'Stop Practice' button to stop the practice
-									session</span
-								>
-								<span class="badge"
-									><i class="fab fa-battle-net"></i></span>
-							</li>
-						</ul>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" type="text/css" href="home.css" />
+	<link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"
+		type="text/css" />
+	<script src="https://kit.fontawesome.com/03752cab9b.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+		crossorigin="anonymous"></script>
+	<title>Intro Page</title>
+</head>
+
+<body>
+	<div class="g">
+		<div class="g-b g-b--6of12 js-profile">
+			<div>
+				<h4 class="well">Account Details</h4>
+				<form class="well well--b well--l" novalidate="novalidate">
+					<div class="form-fieldset well well--b">
+						<label class="label label--fw well well--b well--xs " for="form-ele-first_name">First Name</label>
+						<input class="input input--fw " type="text" name="first_name" id="form-ele-first_name" value="">
 					</div>
-				</div>
+					<div class="form-fieldset well well--b">
+						<label class="label label--fw well well--b well--xs " for="form-ele-last_name">Last Name</label>
+						<input class="input input--fw " type="text" name="last_name" id="form-ele-last_name" value="">
+					</div>
+					<div class="form-fieldset well well--b">
+						<label class="label label--fw well well--b well--xs " for="form-ele-email">Email</label>
+						<input class="input input--fw " type="text" name="email" id="form-ele-email" value="">
+					</div>
+					<div class="form-fieldset">
+						<div class="btn btn--a btn-warning js-submit">Save Changes</div>
+					</div>
+				</form>
 			</div>
 		</div>
-		<div class="intro">
-			<div class="container">
-				<h1>
-					Bonus Features
-				</h1>
-				<div class="row features">
-					<div class="col-4 col-xs-12">
-						<div
-							class="col-12 d-flex flex-column itemFeatures justify-content-center align-items-center"
-						>
-							<img src="./images/music.png" alt="" />
-							<p>
-								User can hear a unique audible tone signalling when a new word
-								is displayed, a word is correctly entered, or an incorrect
-								letter is typed in the word.
-							</p>
-						</div>
+
+		<div class="g-b g-b--6of12 js-profile">
+			<div>
+				<h4 class="well">Change Password</h4>
+				<form class="well well--b well--l" novalidate="novalidate">
+					<div class="form-fieldset well well--b">
+						<label class="label label--fw well well--b well--xs " for="form-ele-first_name">Current Password</label>
+						<input class="input input--fw " type="password" name="first_name" id="form-ele-first_name" value="">
 					</div>
-					<div class="col-4 col-xs-12">
-						<div
-							class="col-12 d-flex flex-column itemFeatures justify-content-center align-items-center"
-						>
-							<img src="./images/coronavirus.png" alt="" />
-							<p>
-								User can see cumulative performance statistics across all of
-								his/her practice sessions.
-							</p>
-						</div>
+					<div class="form-fieldset well well--b">
+						<label class="label label--fw well well--b well--xs " for="form-ele-last_name">New Password</label>
+						<input class="input input--fw " type="password" name="last_name" id="form-ele-last_name"  value="">
 					</div>
-					<div class="col-4 col-xs-12">
-						<div
-							class="col-12 d-flex flex-column itemFeatures justify-content-center align-items-center"
-						>
-							<img src="./images/login.png" alt="" />
-							<p>User can login to the app</p>
-						</div>
+					<div class="form-fieldset well well--b">
+						<label class="label label--fw well well--b well--xs " for="form-ele-email">Confirm Password</label>
+						<input class="input input--fw " type="password" name="email" id="form-ele-email" value="">
 					</div>
-				</div>
+					<div class="form-fieldset">
+						<div class="btn btn-warning btn--a js-submit">Update Password</div>
+					</div>
+				</form>
 			</div>
 		</div>
-	</body>
+	</div>
+</body>
+
 </html>

@@ -5,6 +5,8 @@ const controller = require('../controllers/user.controller');
 
 router.get('/getProfile', authUserMiddleware.requireAuth, controller.get);
 
-router.put('/update' , authUserMiddleware.requireAuth, controller.update)
+router.put('/updateInfo' , authUserMiddleware.requireAuth, controller.updateInfo)
+
+router.put('/updatePassword', authUserMiddleware.requireAuth, controller.updatePassword)
 
 module.exports = router;

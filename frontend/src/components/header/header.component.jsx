@@ -39,19 +39,42 @@ const Header = (props) => {
           Lessons
         </NavLink>
         <AuthContext.Consumer>
-          {({ auth, setAuth }) => (
-            <NavLink
-              tag={Link}
-              className="menu-item"
-              activeClassName="underline"
-              exact
-              to={auth ? "/logout" : "/login"}
-              onClick={() => {
-                auth && setAuth(false);
-              }}
-            >
-              {auth ? "Logout" : "Login"}
-            </NavLink>
+          {({ auth, setAuth, userinfo}) => (
+            userinfo ?
+              <div className="dropdown">
+                <a href="#" className="menu-item dropbtn">{userinfo.firstname ? userinfo.firstname : userinfo.username}</a>
+                <div className="dropdown-content">
+                  <NavLink
+                    tag={Link}
+                    activeClassName="underline"
+                    exact
+                    to={"/account"}
+                  >
+                    Account Setting
+                  </NavLink>
+                  <NavLink
+                    tag={Link}
+                    activeClassName="underline"
+                    exact
+                    to={"/logout"}
+                    onClick={() => {
+                      auth && setAuth(false);
+                    }}
+                  >
+                    Logout
+                  </NavLink>
+                </div>
+              </div>
+              : 
+              <NavLink
+                tag={Link}
+                className="menu-item"
+                activeClassName="underline"
+                exact
+                to={"/login"}
+              >
+                Login
+              </NavLink>
           )}
         </AuthContext.Consumer>
       </div>
