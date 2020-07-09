@@ -1,121 +1,129 @@
 .header {
-  height: 140px;
-  width: 100%;
-  background: linear-gradient(180deg, #0b85bb 0%, rgba(92, 181, 219, 0.5) 100%);
-  display: flex;
-  justify-content: space-between;
-  letter-spacing: 3px;
-  font-family: "Roboto", sans-serif;
+	height: 140px;
+	width: 100%;
+	background: linear-gradient(180deg, #0b85bb 0%, rgba(92, 181, 219, 0.5) 100%);
+	display: flex;
+	justify-content: space-between;
+	letter-spacing: 3px;
+	font-family: "Roboto", sans-serif;
+	position: relative;
+	z-index: 30;
 }
 
 .logo {
-  width: 15%;
-  color: #fff;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-bottom: 3vh;
-  margin-left: 5vw;
-  cursor: pointer;
+	width: 15%;
+	color: #fff;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-bottom: 3vh;
+	margin-left: 5vw;
+	cursor: pointer;
 }
 
 .logo-image {
-  position: absolute;
-  top: 90px;
-  left: 70px;
+	position: absolute;
+	top: 90px;
+	left: 70px;
 }
 
 .logo-wrapper {
-  width: 120px;
+	width: 120px;
 }
 
 .wrapper {
-  position: relative;
+	position: relative;
 }
 
 .logo-image .logo-content {
-  width: 100px;
-  position: absolute;
-  left: 10px;
-  top: 10px;
+	width: 100px;
+	position: absolute;
+	left: 10px;
+	top: 10px;
 }
 
 .logo h1,
 .logo p {
-  margin: 0;
-  display: block;
+	margin: 0;
+	display: block;
 }
 
 .logo h1 {
-  font-size: 40px;
+	font-size: 40px;
 }
 
 .logo p {
-  padding-top: 12px;
+	padding-top: 12px;
 }
 
 .menu {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-bottom: 4vh;
-  letter-spacing: 1px;
-  margin-right: 5vw;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-bottom: 4vh;
+	letter-spacing: 1px;
+	margin-right: 5vw;
 }
 
-.menu-item{
-  padding: 0 10px;
+.menu-item {
+	padding: 0 10px;
 }
 
 .menu-item:link,
 .menu-item:visited {
-  flex-grow: 3;
-  color: #fff;
-  overflow: hidden;
-  text-decoration: none;
-  cursor: pointer;
-  font-size: 16px;
+	flex-grow: 3;
+	color: #fff;
+	overflow: hidden;
+	text-decoration: none;
+	cursor: pointer;
+	font-size: 16px;
 }
 
 .menu-item.underline {
-  border-bottom-width: 2px;
-  color: yellow;
+	border-bottom-width: 2px;
+	color: yellow;
 }
 
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
-  position: relative;
-  display: inline-block;
+	position: relative;
+	display: inline-block;
 }
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+	display: none;
+	position: absolute;
+	background-color: #f1f1f1;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 1;
 }
 
 /* Links inside the dropdown */
 .dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
 }
 
 .underline {
-  border-bottom-width: 2px;
-  color: #FFC70D !important;
+	border-bottom-width: 2px;
+	color: #ffc70d !important;
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #ddd;}
+.dropdown-content a:hover {
+	background-color: #ddd;
+}
 
 /* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropdown-content {
+	display: block;
+}
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {background-color: #3e8e41;}
+.dropdown:hover .dropbtn {
+	background-color: #3e8e41;
+}
